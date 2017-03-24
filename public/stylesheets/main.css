@@ -5917,6 +5917,9 @@ div#triangle2 {
     .mobileAside ul li {
       display: inline-block;
       font-size: 2em; }
+      @media (max-width: 1000px) {
+        .mobileAside ul li {
+          font-size: 1.5em; } }
       .mobileAside ul li a {
         text-decoration: none;
         color: rgba(255, 255, 255, 0.75); }

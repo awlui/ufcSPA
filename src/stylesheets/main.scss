@@ -134,6 +134,9 @@ div#triangle2 {
 		li {
 			display: inline-block;
 			font-size: 2em;
+			@media (max-width: 1000px) {
+				font-size: 1.5em;
+			}
 			a {
 				text-decoration: none;
 				color: rgba(255,255,255,0.75);
