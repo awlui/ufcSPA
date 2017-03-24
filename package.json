@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "development": "node server.js",
+    "production": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.9.x",
+    "npm": "3.10.x"
   },
   "author": "Andy Lui <awlui2014@gmail.com> (http://awlui.github.io/)",
   "license": "UNLICENSED",

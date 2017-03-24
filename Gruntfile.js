@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		nodemon: {
 			dev: {
-				script: 'developmentServer.js'
+				script: 'server.js'
 			}
 		},
 		concurrent: {
