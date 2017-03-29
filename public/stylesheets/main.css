@@ -5807,7 +5807,9 @@ button.close {
   .hidden-print {
     display: none !important; } }
 body {
-  height: 1000px;
+  position: relative;
+  margin: 0;
+  min-height: 100%;
   background-color: #c5c0c7; }
 
 nav.navbar {
@@ -5824,9 +5826,9 @@ nav.navbar {
     padding: 0 20px; }
 
 .wrapper {
-  position: relative;
   color: black;
-  height: 1000px;
+  min-height: 800px;
+  height: 100%;
   background-repeat: no-repeat;
   margin: 20px;
   margin-right: 420px;
@@ -5935,11 +5937,13 @@ div#triangle2 {
       animation-timing-function: ease-in; } }
 
 footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
   padding: 10px;
+  margin-bottom: 0;
   background-color: white; }
-  @media (max-width: 1000px) {
-    footer {
-      margin-bottom: 50px; } }
   footer h2 {
     border-bottom: 2px solid red;
     padding-right: 30px;
@@ -5970,9 +5974,36 @@ footer {
   background-color: rgba(255, 255, 255, 0.9);
   padding: 20px; }
 
-.col-md-6 {
-  background-color: rgba(255, 255, 255, 0.9);
-  height: 200px; }
+.fighterSearch {
+  opacity: 0;
+  top: -60px;
+  animation-name: slideIn;
+  animation-delay: 0.5s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.9); }
+
+.fighterProfile {
+  opacity: 0;
+  top: -60px;
+  animation-name: slideIn;
+  animation-delay: 0.5s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.9); }
+  .fighterProfile img {
+    width: 100%;
+    max-width: 500px;
+    max-height: 500px; }
+
+form {
+  position: absolute;
+  top: 250px; }
+
+.form-group div {
+  display: inline-block; }
 
 @keyframes slideIn {
   0% {
