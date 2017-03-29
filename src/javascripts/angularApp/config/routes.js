@@ -7,7 +7,7 @@ angular.module('ufcApp')
   	//Fighters Page
   	$routeProvider.when('/Fighters', {
   		templateUrl: "src/templates/fighterList.html",
-  		controller: ['fighterList', 'fighterSearchService', function(fighterList, fighterSearchService) {
+  		controller: ['$location', 'fighterList', 'fighterSearchService', function($location, fighterList, fighterSearchService) {
         var self = this;
         self.options = function() {
           var flag = false;
@@ -27,40 +27,66 @@ angular.module('ufcApp')
   			self.fighterList = fighterList.data;
 
         self.fighterSearch = function() {
-          fighterSearchService.query(self.currentFighterID).then(function(data) {
-            self.currentFighter = data.data;
-          });
+          $location.url('Fighters/' + self.currentFighterID)
 
         }
 
   		}],
       controllerAs: 'mainCtrl',
   		resolve: {
-  			fighterList: ['$http',function($http) {
+  			fighterList: ['$http', function($http) {
   				return $http.get('http://localhost:3000/api/fighters')
   			}
         ]
   		}
   	});
-  }]);
-
-angular.module('ufcApp')
-  .filter('nullWeightClass', [function() {
-    return function(fighterList) {
-      var array = [];
-      angular.forEach(fighterList, function(fighter) {
-        if (fighter.weight_class !== null) {
-          array.push(fighter);
+    $routeProvider.when('/Fighters/:fighterID', {
+      templateUrl: "src/templates/fighterList.html",
+      controller: ['$location', 'fighter', 'fighterList', '$routeParams', 'searchOptionsState', function($location, fighter, fighterList, $routeParams, searchOptionsState) {
+        var self = this;
+        self.currentFighterID = parseInt($routeParams.fighterID);
+        self.weightClass = searchOptionsState.weightClass;
+        self.options = function() {
+          console.log($('optgroup'))
+          var flag = false;
+          $('optgroup').css('display', 'none');
+          for (key in self.weightClass) {
+            if (self.weightClass[key] === true) {
+              $('optgroup[label="' + key + '"]').css('display', 'block');
+              flag = true;
+            } else {
+              $('optgroup[label="' + key + '"]').css('display', 'none');
+            }
+          }
+          if (flag === false) {
+            $('optgroup').css('display', 'block');
+          }
+          searchOptionsState.weightclass = self.weightClass
         }
-      });
-      return array;
-    }
-  }]);
-angular.module('ufcApp')
-  .factory('fighterSearchService', ['$http', function($http) {
-    return {
-      query: function(id) {
-        return $http.get('http://localhost:3000/api/fighters/' + id);
+        self.fighterList = fighterList.data;
+        self.currentFighter = fighter.data;
+        self.fighterSearch = function() {
+            if (self.currentFighterID) {
+              $location.path('Fighters/' + self.currentFighterID)
+            } else {
+              $location.path('Fighters')
+            }
+        }
+        self.options();
+      }],
+      controllerAs: 'mainCtrl',
+      resolve: {
+        fighterList: ['$http', function($http) {
+          return $http.get('http://localhost:3000/api/fighters')
+        }],
+        fighter: ['fighterSearchService', '$route', function(fighterSearchService, $route) {
+          return fighterSearchService.query(parseInt($route.current.params.fighterID)).then(function(data) {
+            return data;
+          }).catch(function(err) {
+            console.log(err)
+            return;
+          })
+        }]
       }
-    }
-  }]);
+    })
+  }])

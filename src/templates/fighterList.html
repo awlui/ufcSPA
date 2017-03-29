@@ -3,7 +3,7 @@
 <h1>
 	Fighter Search
 </h1>
-<select size=10 ng-model="mainCtrl.currentFighterID" ng-click=mainCtrl.fighterSearch()
+<select size=10 ng-init="mainCtrl.currentFighterID" ng-model="mainCtrl.currentFighterID" ng-click=mainCtrl.fighterSearch()
 		ng-options="fighter.id as (fighter.first_name + ' ' + fighter.last_name) group by fighter.weight_class for fighter in mainCtrl.fighterList | nullWeightClass"> 
 		<option value="">Search</option>
 </select>
