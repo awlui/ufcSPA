@@ -5826,6 +5826,7 @@ nav.navbar {
     padding: 0 20px; }
 
 .wrapper {
+  z-index: 1;
   color: black;
   min-height: 800px;
   height: 100%;
@@ -5845,6 +5846,7 @@ nav.navbar {
     filter: blur(5px);
     opacity: 0.3; } }
 .backdrop {
+  z-index: 1;
   background-image: url("http://www.fxguide.com/wp-content/uploads/2012/10/VV045_comp_v37.1033.jpg?62f061");
   background-size: contain;
   background-position: 50%;
@@ -5965,6 +5967,7 @@ footer {
   width: 100%; }
 
 .home {
+  z-index: 1000;
   opacity: 0;
   top: -60px;
   animation-name: slideIn;
@@ -5975,23 +5978,44 @@ footer {
   padding: 20px; }
 
 .fighterSearch {
-  height: 600px;
+  z-index: 1000;
+  height: 650px;
   background-color: rgba(255, 255, 255, 0.9); }
 
 .fighterProfile {
-  height: 600px;
+  text-align: center;
+  z-index: 1000;
+  height: 650px;
   background-color: rgba(255, 255, 255, 0.9); }
   .fighterProfile img {
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-delay: 0.5s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
     width: 100%;
     max-width: 500px;
     max-height: 500px; }
 
 form {
+  padding: 10px;
   position: absolute;
   top: 250px; }
 
 .form-group div {
   display: inline-block; }
+
+.fighterInfo {
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.9); }
+
+table {
+  margin: 10px auto;
+  width: 70%; }
+  table tr td:first-child {
+    width: 30%; }
+  table tr td:nth-child(2) {
+    width: 70%; }
 
 @keyframes slideIn {
   0% {
@@ -6010,5 +6034,10 @@ form {
     bottom: -50px; }
   100% {
     bottom: 0; } }
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
 
 /*# sourceMappingURL=main.css.map */

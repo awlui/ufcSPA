@@ -25,6 +25,7 @@ nav.navbar {
 	}
 }
 .wrapper {
+	z-index: 1;
 	color: black;
 	min-height: 800px;
 	height: 100%;
@@ -47,6 +48,7 @@ nav.navbar {
 	}
 }
 .backdrop {
+	z-index: 1;
 	background-image: url("http://www.fxguide.com/wp-content/uploads/2012/10/VV045_comp_v37.1033.jpg?62f061");
 	background-size: contain;
 	background-position: 50%;
@@ -195,6 +197,7 @@ footer {
 }
 
 .home {
+	z-index: 1000;
 	opacity: 0;
 	top: -60px;
 	animation-name: slideIn;
@@ -207,24 +210,49 @@ footer {
 }
 
 .fighterSearch {
-	height: 600px;
+	z-index: 1000;
+	height: 650px;
 	background-color: rgba(255,255,255,0.9);
 }
 .fighterProfile {
-	height: 600px;
+	text-align: center;
+	z-index: 1000;
+	height: 650px;
 	background-color: rgba(255,255,255,0.9);
 	img {
+		opacity: 0;
+		animation-name: fadeIn;
+		animation-delay: 0.5s;
+		animation-duration: 2s;
+		animation-fill-mode: forwards;
 		width: 100%;
 		max-width: 500px;
 		max-height: 500px;
 	}
 }
 form {
+	padding: 10px;
 	position: absolute;
 	top: 250px;
 }
 .form-group div {
 	display: inline-block;
+}
+.fighterInfo {
+	z-index: 1000;
+	background-color: rgba(255,255,255,0.9)
+}
+table {
+	margin: 10px auto;
+	width: 70%;
+	tr {
+		td:first-child {
+			width: 30%;
+		}
+		td:nth-child(2) {
+			width: 70%;
+		}
+	}
 }
 //animations
 @keyframes slideIn {
@@ -251,5 +279,13 @@ form {
 	}
 	100% {
 		bottom: 0;
+	}
+}
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
 	}
 }

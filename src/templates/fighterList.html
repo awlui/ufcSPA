@@ -3,40 +3,58 @@
 <h1>
 	Fighter Search
 </h1>
-<select size=10 ng-init="mainCtrl.currentFighterID" ng-model="mainCtrl.currentFighterID" ng-click=mainCtrl.fighterSearch()
-		ng-options="fighter.id as (fighter.first_name + ' ' + fighter.last_name) group by fighter.weight_class for fighter in mainCtrl.fighterList | nullWeightClass"> 
+<select size=10  ng-model="currentFighter.id" ng-click=fighterSearch()
+		ng-options="fighter.id as (fighter.first_name + ' ' + fighter.last_name) group by fighter.weight_class for fighter in fighterList | nullWeightClass | weightClassFilter:weightClass | nameFilter:query"> 
 		<option value="">Search</option>
 </select>
 <form action="">
+	<label for="query">Name Filter</label>
+	<input id="query" type="text" ng-model="query">
 	<div class="form-group">
 		<h3>Weight Class:</h3>
 		<div>
 		<label for="featherweight">Featherweight</label>
-		<input type="checkbox" id="featherweight" ng-model="mainCtrl.weightClass.Featherweight" ng-click=mainCtrl.options()>
+		<input type="checkbox" id="featherweight" ng-model="weightClass.Featherweight">
 		</div>
 		<div>
 		<label for="bantamweight">Bantamweight</label>
-		<input type="checkbox" id="bantamweight" ng-model="mainCtrl.weightClass.Bantamweight" ng-click=mainCtrl.options()>
+		<input type="checkbox" id="bantamweight" ng-model="weightClass.Bantamweight">
 		</div>
 		<div>
 		<label for="welterweight">Welterweight</label>
-		<input type="checkbox" id="welterweight" ng-model="mainCtrl.weightClass.Welterweight" ng-click=mainCtrl.options()>
+		<input type="checkbox" id="welterweight" ng-model="weightClass.Welterweight" >
 		</div>
 		<div>
 		<label for="heavyweight">Heavyweight</label>
-		<input type="checkbox" id="heavyweight" ng-model="mainCtrl.weightClass.Heavyweight" ng-click=mainCtrl.options()>
+		<input type="checkbox" id="heavyweight" ng-model="weightClass.Heavyweight" >
 		</div>
 		<div>
 		<label for="flyweight">Flyweight</label>
-		<input type="checkbox" id="flyweight" ng-model="mainCtrl.weightClass.Flyweight" ng-click=mainCtrl.options()>
+		<input type="checkbox" id="flyweight" ng-model="weightClass.Flyweight" >
+		</div>
+		<div>
+		<label for="women_strawweight">Women's Strawweight</label>
+		<input type="checkbox" id="women_strawweight" ng-model="weightClass.Women_Strawweight" >
+		</div>
+		<div>
+		<label for="women_bantamweight">Women's Bantamweight</label>
+		<input type="checkbox" id="women_bantamweight" ng-model="weightClass.Women_Bantamweight" >
 		</div>
 		<div>
 		<label for="women_featherweight">Women's Featherweight</label>
-		<input type="checkbox" id="women_featherweight" ng-model="mainCtrl.weightClass.Women_Featherweight" ng-click=mainCtrl.options()>
+		<input type="checkbox" id="women_featherweight" ng-model="weightClass.Women_Featherweight" >
 		</div>
 		<div>
 		<label for="lightweight">Lightweight</label>
-		<input type="checkbox" id="lightweight" ng-model="mainCtrl.weightClass.Lightweight" ng-click=mainCtrl.options()>
+		<input type="checkbox" id="lightweight" ng-model="weightClass.Lightweight">
+		</div>
+		<div>
+		<label for="middleweight">Middleweight</label>
+		<input type="checkbox" id="middleweight" ng-model="weightClass.Middleweight">
+		</div>
+		<div>
+		<label for="light_heavyweight">Light Heavyweight</label>
+		<input type="checkbox" id="light_heavyweight" ng-model="weightClass.Light_Heavyweight">
 		</div>
 	</div>
 </form>
@@ -44,7 +62,36 @@
 
 
 <div class="col-md-12 col-lg-6 fighterProfile">
-	<h2>{{ (mainCtrl.currentFighter.first_name + ' ' + mainCtrl.currentFighter.last_name) }}</h2>
-	<img ng-src="{{ mainCtrl.currentFighter.profile_image }}">
+	<h2>{{ (currentFighter.first_name + ' ' + currentFighter.last_name) }}</h2>
+	<img ng-src="{{ currentFighter.profile_image }}">
+	<h3 ng-show="!!currentFighter.nickname">Nickname: {{currentFighter.nickname || "N/A"}}</h3>
+</div>
+<div class="col-xs-12 fighterInfo" ng-show="!!currentFighter.id">
+	<table class="table-bordered">
+		<tr>
+			<th>Fighter Info</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td>Fights Out Of</td>
+			<td>{{(currentFighter.city_residing || "") + ', ' + (currentFighter.state_residing || "") + ' ' + (currentFighter.country_residing || "")}}</td>
+		</tr>
+		<tr>
+			<td>Date of Birth</td>
+			<td>{{currentFighter.dob | date}}</td>
+		</tr>
+		<tr>
+			<td>Height</td>
+			<td>{{currentFighter.height_ft}}</td>
+		</tr>
+		<tr>
+			<td>Weight</td>
+			<td>{{currentFighter.weight + ' lbs'}}</td>
+		</tr>
+		<tr>
+			<td>Wins / Losses / Draws</td>
+			<td>{{currentFighter.wins +' / ' + currentFighter.losses + ' / ' + currentFighter.draws }}</td>
+		</tr>
+	</table>
 </div>
 </div>

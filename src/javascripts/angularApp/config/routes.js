@@ -6,30 +6,13 @@ angular.module('ufcApp')
   	});
   	//Fighters Page
   	$routeProvider.when('/Fighters', {
-  		templateUrl: "src/templates/fighterList.html",
-  		controller: ['$location', 'fighterList', 'fighterSearchService', function($location, fighterList, fighterSearchService) {
+  		template: "<div search-options weight-class='mainCtrl.weightClass' fighter-list='mainCtrl.fighterList'current-fighter='mainCtrl.currentFighter'></div>",
+  		controller: ['$location', 'fighterList', 'searchOptionsState', function($location, fighterList, searchOptionsState) {
         var self = this;
-        self.options = function() {
-          var flag = false;
-          $('optgroup').css('display', 'none');
-          for (key in self.weightClass) {
-            if (self.weightClass[key] === true) {
-              $('optgroup[label="' + key + '"]').css('display', 'block');
-              flag = true;
-            } else {
-              $('optgroup[label="' + key + '"]').css('display', 'none');
-            }
-          }
-          if (flag === false) {
-            $('optgroup').css('display', 'block');
-          }
-        }
   			self.fighterList = fighterList.data;
+        self.weightClass = searchOptionsState.weightClass;
+        self.currentFighter = {};
 
-        self.fighterSearch = function() {
-          $location.url('Fighters/' + self.currentFighterID)
-
-        }
 
   		}],
       controllerAs: 'mainCtrl',
@@ -41,38 +24,15 @@ angular.module('ufcApp')
   		}
   	});
     $routeProvider.when('/Fighters/:fighterID', {
-      templateUrl: "src/templates/fighterList.html",
+      template: "<div search-options weight-class='mainCtrl.weightClass' fighter-list='mainCtrl.fighterList' current-fighter='mainCtrl.currentFighter'></div>",
       controller: ['$location', 'fighter', 'fighterList', '$routeParams', 'searchOptionsState', function($location, fighter, fighterList, $routeParams, searchOptionsState) {
         var self = this;
         self.currentFighterID = parseInt($routeParams.fighterID);
         self.weightClass = searchOptionsState.weightClass;
-        self.options = function() {
-          console.log($('optgroup'))
-          var flag = false;
-          $('optgroup').css('display', 'none');
-          for (key in self.weightClass) {
-            if (self.weightClass[key] === true) {
-              $('optgroup[label="' + key + '"]').css('display', 'block');
-              flag = true;
-            } else {
-              $('optgroup[label="' + key + '"]').css('display', 'none');
-            }
-          }
-          if (flag === false) {
-            $('optgroup').css('display', 'block');
-          }
-          searchOptionsState.weightclass = self.weightClass
-        }
+
         self.fighterList = fighterList.data;
         self.currentFighter = fighter.data;
-        self.fighterSearch = function() {
-            if (self.currentFighterID) {
-              $location.path('Fighters/' + self.currentFighterID)
-            } else {
-              $location.path('Fighters')
-            }
-        }
-        self.options();
+
       }],
       controllerAs: 'mainCtrl',
       resolve: {
