@@ -17,14 +17,14 @@ angular.module('ufcApp')
       var flag = false;
       if (Object.keys(weightClasses).length > 0) {
         for (key in weightClasses) {
-          if (weightClasses[key]) {
+          if (!!weightClasses[key]) {
             flag = true;
           }
         }
       }
       if (flag) {
         angular.forEach(fighterList, function(fighter) {
-          if (weightClasses[fighter.weight_class]) {
+          if (!!weightClasses[fighter.weight_class]) {
             array.push(fighter)
             flag = true;
           } else {
@@ -79,3 +79,17 @@ angular.module('ufcApp')
     }
   }])
 
+  .filter('missingImageFilter', [function() {
+    return function(fight) {
+      if (!!fight.Opponent.profile_image) {
+        return fight.Opponent.profile_image
+      } else {
+        console.log(fight.WeightClass.Description)
+        if (~fight.WeightClass.Description.indexOf('Women')) {
+          return "http://imagec.ufc.com/http%253A%252F%252Fmedia.ufc.tv%252F%252Ffighter_images%252FShadow%252FUFCWomen_Headshot.png?w600-h600-tc1";
+        } else {
+          return "http://imagec.ufc.com/http%253A%252F%252Fmedia.ufc.tv%252F%252Ffighter_images%252F%252FComingSoon%252Fcomingsoon_headshot_odopod.png?w600-h600-tc1";
+        }
+      }
+    }
+  }])

@@ -67,6 +67,7 @@
 	<h3 ng-show="!!currentFighter.nickname">Nickname:</h3><span ng-show="!!currentFighter.nickname">{{currentFighter.nickname || "N/A"}}</span>
 </div>
 </div>
+<div class="row">
 <div class="col-xs-12 fighterInfo" ng-show="!!currentFighter.id">
 	<table class="table-bordered">
 		<tr>
@@ -75,7 +76,7 @@
 		</tr>
 		<tr>
 			<td>Fights Out Of</td>
-			<td>{{(currentFighter.city_residing || "") + ', ' + (currentFighter.state_residing || "") + ' ' + (currentFighter.country_residing || "")}}</td>
+			<td>{{[currentFighter.city_residing,currentFighter.state_residing, currentFighter.country_residing] | locationTransformer}}</td>
 		</tr>
 		<tr>
 			<td>Date of Birth</td>
@@ -98,7 +99,7 @@
 <div class="col-xs-12">
 	<div class="fight row" ng-repeat="fight in currentFighter.fights">
 		<div class="col-sm-4 col-xs-12">
-			<img ng-src="{{ fight.Opponent.profile_image }}" alt="">
+			<img ng-src="{{ fight | missingImageFilter }}" alt="">
 		</div>
 		<div class="col-sm-8 col-xs-12">
 			<span class="badge" ng-class="{ '{{ fight.Result.Outcome | outcomeTransformer | lowercase}}': true}" >{{ fight.Result.Outcome | outcomeTransformer }}</span>
@@ -109,5 +110,6 @@
 			<p>{{[fight.Event.Location.City, fight.Event.Location.State, fight.Event.Location.Country] | locationTransformer}}</p>
 		</div>
 	</div>
+</div>
 </div>
 </div>
