@@ -6055,6 +6055,38 @@ table {
     .badge {
       float: none; } }
 
+route-loading-indicator {
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.75);
+  display: inline-block; }
+
+.loading {
+  font: 26px/1.5 Monospace;
+  color: rgba(255, 13, 0, 0.7);
+  perspective: 100px; }
+  .loading > span {
+    animation: flip 2s infinite;
+    display: inline-block;
+    transform-origin: 50% 50% -10px;
+    transform-style: preserve-3d; }
+    .loading > span:nth-child(1) {
+      animation-delay: 0.1s; }
+    .loading > span:nth-child(2) {
+      animation-delay: 0.2s; }
+    .loading > span:nth-child(3) {
+      animation-delay: 0.3s; }
+    .loading > span:nth-child(4) {
+      animation-delay: 0.4s; }
+    .loading > span:nth-child(5) {
+      animation-delay: 0.5s; }
+    .loading > span:nth-child(6) {
+      animation-delay: 0.6s; }
+    .loading > span:nth-child(7) {
+      animation-delay: 0.7s; }
+
+@keyframes flip {
+  to {
+    transform: rotateX(1turn); } }
 @keyframes slideIn {
   0% {
     top: -60px;

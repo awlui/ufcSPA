@@ -29,7 +29,7 @@ angular.module('ufcApp')
         var self = this;
         self.currentFighterID = parseInt($routeParams.fighterID);
         self.weightClass = searchOptionsState.weightClass;
-
+        
         self.fighterList = fighterList.data;
         self.currentFighter = fighter.data;
 
