@@ -6027,11 +6027,14 @@ table {
 .fight {
   padding-top: 20px;
   margin: 20px;
-  background-color: rgba(255, 255, 255, 0.9); }
+  background-color: rgba(255, 255, 255, 0.9);
+  text-align: center; }
   .fight > div {
+    padding-top: 10px;
     height: 400px; }
     .fight > div img {
-      width: 100%; }
+      max-height: 100%;
+      max-width: 100%; }
   .fight::after {
     clear: both;
     content: "";
