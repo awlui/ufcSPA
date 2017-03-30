@@ -78,7 +78,7 @@
 		</tr>
 		<tr>
 			<td>Date of Birth</td>
-			<td>{{currentFighter.dob | date}}</td>
+			<td>{{(currentFighter.dob | date) || "Unknown"}}</td>
 		</tr>
 		<tr>
 			<td>Height</td>
@@ -100,12 +100,12 @@
 			<img ng-src="{{ fight.Opponent.profile_image }}" alt="">
 		</div>
 		<div class="col-sm-8 col-xs-7">
-			<span class="badge" ng-class="{ '{{ fight.Result.Outcome | outcomeFilter | lowercase}}': true}" >{{ fight.Result.Outcome | outcomeFilter }}</span>
-			<p>{{fight.Opponent.FirstName + ' ' + fight.Opponent.LastName}}</p>
+			<span class="badge" ng-class="{ '{{ fight.Result.Outcome | outcomeTransformer | lowercase}}': true}" >{{ fight.Result.Outcome | outcomeTransformer }}</span>
+			<h2>{{fight.Opponent.FirstName + ' ' + fight.Opponent.LastName}}</h2>
 			<p>{{fight.Event.Name}}</p>
 			<p>{{fight.WeightClass.Description}}</p>
 			<p>{{fight.Event.Location.Venue}}</p>
-			<p>{{(fight.Event.Location.City || "") + ', ' + (fight.Event.Location.State || "") + ' ' + (fight.Event.Location.Country || "")}}</p>
+			<p>{{[fight.Event.Location.City, fight.Event.Location.State, fight.Event.Location.Country] | locationTransformer}}</p>
 		</div>
 	</div>
 </div>

@@ -9,9 +9,8 @@ angular.module('ufcApp')
       });
       return array;
     }
-  }]);
+  }])
 
-angular.module('ufcApp')
   .filter('weightClassFilter', [function() {
     return function(fighterList, weightClasses) {
       var array = [];
@@ -37,9 +36,8 @@ angular.module('ufcApp')
       }
       return array;
     }
-  }]);
+  }])
 
-angular.module('ufcApp')
   .filter('nameFilter', [function() {
     return function(fighterList, query) {
       var array = [];
@@ -52,10 +50,9 @@ angular.module('ufcApp')
       });
       return array;
     }
-  }]);
+  }])
 
-angular.module('ufcApp')
-  .filter('outcomeFilter', [function() {
+  .filter('outcomeTransformer', [function() {
     return function(outcome) {
       if (outcome === null) {
         return "Upcoming";
@@ -64,3 +61,21 @@ angular.module('ufcApp')
       }
     }
   }])
+
+  .filter('locationTransformer', [function() {
+    return function(arr) {
+      var str = ""
+      if (arr[0]) {
+        str += arr[0] + ', '
+      }
+      if (arr[1]) {
+        str += arr[1] + ' ';
+      }
+      if (arr[2]) {
+        str += arr[2];
+      }
+
+      return str ? str : "Unknown"; 
+    }
+  }])
+

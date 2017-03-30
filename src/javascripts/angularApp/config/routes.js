@@ -18,7 +18,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
   		resolve: {
   			fighterList: ['$http', function($http) {
-  				return $http.get('https://gentle-citadel-87711.herokuapp.com/api/fighters')
+  				return $http.get('http://localhost:3000/api/fighters')
   			}
         ]
   		}
@@ -37,7 +37,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         fighterList: ['$http', function($http) {
-          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/fighters')
+          return $http.get('http://localhost:3000/api/fighters')
         }],
         fighter: ['fighterSearchService', '$route', function(fighterSearchService, $route) {
           return fighterSearchService.query(parseInt($route.current.params.fighterID)).then(function(data) {
