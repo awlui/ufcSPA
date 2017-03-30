@@ -5910,6 +5910,7 @@ div#triangle2 {
   border-color: rgba(255, 13, 0, 0.7) transparent transparent transparent; }
 
 .mobileAside {
+  z-index: 750;
   position: fixed;
   bottom: -50px;
   background-color: rgba(255, 13, 0, 0.7);
@@ -5939,10 +5940,10 @@ div#triangle2 {
       animation-timing-function: ease-in; } }
 
 footer {
+  z-index: 1000;
   position: relative;
-  right: 0;
+  width: 100%;
   bottom: 0;
-  left: 0;
   padding: 10px;
   margin-bottom: 0;
   background-color: white; }
@@ -5967,7 +5968,7 @@ footer {
   width: 100%; }
 
 .home {
-  z-index: 1000;
+  z-index: 500;
   opacity: 0;
   top: -60px;
   animation-name: slideIn;
@@ -5978,14 +5979,18 @@ footer {
   padding: 20px; }
 
 .fighterSearch {
-  z-index: 1000;
+  z-index: 500;
   height: 650px;
   background-color: rgba(255, 255, 255, 0.9); }
+  @media (max-width: 992px) {
+    .fighterSearch {
+      height: 500px; } }
 
 .fighterProfile {
   text-align: center;
-  z-index: 1000;
+  z-index: 500;
   height: 650px;
+  margin-bottom: 20px;
   background-color: rgba(255, 255, 255, 0.9); }
   .fighterProfile img {
     opacity: 0;
@@ -6006,8 +6011,10 @@ form {
   display: inline-block; }
 
 .fighterInfo {
-  z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.9); }
+  z-index: 500;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px 0;
+  margin-bottom: 20px; }
 
 table {
   margin: 10px auto;
@@ -6016,6 +6023,34 @@ table {
     width: 30%; }
   table tr td:nth-child(2) {
     width: 70%; }
+
+.fight {
+  padding-top: 20px;
+  margin: 20px;
+  background-color: rgba(255, 255, 255, 0.9); }
+  .fight > div {
+    height: 400px; }
+    .fight > div img {
+      width: 100%; }
+  .fight::after {
+    clear: both;
+    content: "";
+    display: table; }
+
+.badge {
+  font-size: 1.5em;
+  padding: 10px;
+  float: right;
+  margin-bottom: 10px; }
+  .badge.upcoming {
+    background-color: blue; }
+  .badge.win {
+    background-color: red; }
+  .badge.loss {
+    background-color: grey; }
+  @media (max-width: 768px) {
+    .badge {
+      float: none; } }
 
 @keyframes slideIn {
   0% {

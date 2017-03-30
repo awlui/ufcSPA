@@ -60,11 +60,11 @@
 </form>
 </div>
 
-
 <div class="col-md-12 col-lg-6 fighterProfile">
 	<h2>{{ (currentFighter.first_name + ' ' + currentFighter.last_name) }}</h2>
 	<img ng-src="{{ currentFighter.profile_image }}">
-	<h3 ng-show="!!currentFighter.nickname">Nickname: {{currentFighter.nickname || "N/A"}}</h3>
+	<h3 ng-show="!!currentFighter.nickname">Nickname:</h3><span ng-show="!!currentFighter.nickname">{{currentFighter.nickname || "N/A"}}</span>
+</div>
 </div>
 <div class="col-xs-12 fighterInfo" ng-show="!!currentFighter.id">
 	<table class="table-bordered">
@@ -93,5 +93,20 @@
 			<td>{{currentFighter.wins +' / ' + currentFighter.losses + ' / ' + currentFighter.draws }}</td>
 		</tr>
 	</table>
+</div>
+<div class="col-xs-12">
+	<div class="fight row" ng-repeat="fight in currentFighter.fights">
+		<div class="col-sm-4 col-xs-5">
+			<img ng-src="{{ fight.Opponent.profile_image }}" alt="">
+		</div>
+		<div class="col-sm-8 col-xs-7">
+			<span class="badge" ng-class="{ '{{ fight.Result.Outcome | outcomeFilter | lowercase}}': true}" >{{ fight.Result.Outcome | outcomeFilter }}</span>
+			<p>{{fight.Opponent.FirstName + ' ' + fight.Opponent.LastName}}</p>
+			<p>{{fight.Event.Name}}</p>
+			<p>{{fight.WeightClass.Description}}</p>
+			<p>{{fight.Event.Location.Venue}}</p>
+			<p>{{(fight.Event.Location.City || "") + ', ' + (fight.Event.Location.State || "") + ' ' + (fight.Event.Location.Country || "")}}</p>
+		</div>
+	</div>
 </div>
 </div>

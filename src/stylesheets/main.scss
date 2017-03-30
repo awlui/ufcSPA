@@ -128,6 +128,7 @@ div#triangle2 {
 
 
 .mobileAside {
+	z-index: 750;
 	position: fixed;
 	bottom: -50px;
 	background-color: $app-red;
@@ -161,10 +162,10 @@ div#triangle2 {
 	}
 }
 footer {
+	z-index: 1000;
 	position: relative;
-	right: 0;
+	width: 100%;
 	bottom: 0;
-	left: 0;
 	padding: 10px;
 	margin-bottom: 0;
 	background-color: white;
@@ -197,7 +198,7 @@ footer {
 }
 
 .home {
-	z-index: 1000;
+	z-index: 500;
 	opacity: 0;
 	top: -60px;
 	animation-name: slideIn;
@@ -210,14 +211,18 @@ footer {
 }
 
 .fighterSearch {
-	z-index: 1000;
+	z-index: 500;
 	height: 650px;
 	background-color: rgba(255,255,255,0.9);
+	@media (max-width: $screen-md) {
+		height: 500px;
+	}
 }
 .fighterProfile {
 	text-align: center;
-	z-index: 1000;
+	z-index: 500;
 	height: 650px;
+	margin-bottom: 20px;
 	background-color: rgba(255,255,255,0.9);
 	img {
 		opacity: 0;
@@ -239,8 +244,10 @@ form {
 	display: inline-block;
 }
 .fighterInfo {
-	z-index: 1000;
-	background-color: rgba(255,255,255,0.9)
+	z-index: 500;
+	background-color: rgba(255,255,255,0.9);
+	padding: 20px 0;
+	margin-bottom: 20px;
 }
 table {
 	margin: 10px auto;
@@ -252,6 +259,42 @@ table {
 		td:nth-child(2) {
 			width: 70%;
 		}
+	}
+}
+
+.fight {
+	padding-top: 20px;
+	margin: 20px;
+	background-color: rgba(255,255,255,0.9);
+	& > div {
+		height: 400px;
+		img {
+			width: 100%;
+		}
+	}
+	&::after {
+		clear: both;
+		content: "";
+		display: table;
+	}
+}
+.badge {
+	font-size: 1.5em;
+	padding: 10px;
+	float: right;
+	margin-bottom: 10px;
+	&.upcoming {
+	background-color: blue;
+	}
+	&.win {
+		background-color: red;
+	}
+
+	&.loss {
+		background-color: grey;
+	}
+	@media (max-width: $screen-sm) {
+		float:none;
 	}
 }
 //animations
