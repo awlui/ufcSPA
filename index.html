@@ -2,13 +2,15 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" href="public/stylesheets/main.css">
+
 	</head>
 	<body ng-app="ufcApp">
 		<nav class="navbar navbar-default">
 			<div class="navbar-header">
-				<h1>ng-UFC</h1>
-				<route-loading-indicator><span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G...</span></route-loading-indicator>
+				<a href="#"><h1>ng-UFC</h1></a>
+				<route-loading-indicator class="animated pulse infinite">Loading...</route-loading-indicator>
 
 			</div>
 		</nav>
@@ -17,7 +19,7 @@
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#!/Fighters">Fighters</a></li>
-					<li><a href="#">Events</a></li>
+					<li><a href="#!/Events">Events</a></li>
 					<li><a href="#">Media</a></li>
 				</ul>
 			</div>
@@ -48,7 +50,7 @@
 			<ul>
 				<li><a href="#">Home</a> /</li>
 				<li><a href="#!/Fighters"> Fighter</a> /</li>
-				<li> <a href="#">Events</a> /</li>
+				<li> <a href="#!/Events">Events</a> /</li>
 				<li> <a href="#">Media</a></li>
 			</ul>
 		</div>
@@ -57,7 +59,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<p>Credits to UFC for their terrible, yet functional, API.</p>
+						<p class="animated bounce infinite">Credits to UFC for their terrible, yet functional, API.</p>
 					</div>
 					<div class="col-xs-12 col-sm-6">
 						<p>Credits to me too, of course!</p>
@@ -65,6 +67,11 @@
 				</div>
 			</div>
 		</footer>
+		<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  		<script src="src/javascripts/main.js"></script>
 		<script src="node_modules/angular/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-resource.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
@@ -74,10 +81,6 @@
 		<script src="src/javascripts/angularApp/services/index.js"></script>
 		<script src="src/javascripts/angularApp/directives/index.js"></script>
 		<script src="http://localhost:35729/"></script>
-		<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  		<script src="src/javascripts/main.js"></script>
+
 	</body>
 </html>

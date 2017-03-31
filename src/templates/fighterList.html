@@ -97,6 +97,7 @@
 	</table>
 </div>
 <div class="col-xs-12">
+	<h2 ng-if="!!currentFighter.fights">Fighter History</h2>
 	<div class="fight row" ng-repeat="fight in currentFighter.fights">
 		<div class="col-sm-4 col-xs-12">
 			<img ng-src="{{ fight | missingImageFilter }}" alt="">
@@ -104,6 +105,7 @@
 		<div class="col-sm-8 col-xs-12">
 			<span class="badge" ng-class="{ '{{ fight.Result.Outcome | outcomeTransformer | lowercase}}': true}" >{{ fight.Result.Outcome | outcomeTransformer }}</span>
 			<h3>{{fight.Opponent.FirstName + ' ' + fight.Opponent.LastName}}</h3>
+			<p>{{fight.Result.Method}}</p>
 			<p>{{fight.Event.Name}}</p>
 			<p>{{fight.WeightClass.Description}}</p>
 			<p>{{fight.Event.Location.Venue}}</p>

@@ -276,8 +276,11 @@ table {
 	margin: 20px;
 	background-color: rgba(255,255,255,0.9);
 	text-align: center;
+	h3 {
+		display: inline-block;
+	}
 	& > div {
-		padding-top: 10px;
+		padding-top: 30px;
 		height: auto;
 		img {
 			max-height: 100%;
@@ -293,7 +296,9 @@ table {
 .badge {
 	font-size: 1.5em;
 	padding: 10px;
-	float: right;
+	position: absolute;
+	top: 10px;
+	right: 10px;
 	margin-bottom: 10px;
 	&.upcoming {
 	background-color: rgba(0,194,115,1);
@@ -305,6 +310,9 @@ table {
 	&.loss {
 		background-color: grey;
 	}
+	&.draw {
+		background-color: rgba(79,155,194, 1);
+	}
 	@media (max-width: $screen-sm) {
 		float:none;
 	}
@@ -314,30 +322,13 @@ route-loading-indicator {
 	font-size: 2em;
 	background-color: rgba(255,255,255,0);
 	display: inline-block;
+	color: $app-red;
+	margin-left: 30px;
 
 }
 
-
-.loading{
-  font:26px/1.5 Monospace;
-  color:$app-red;
-  perspective:100px;
-  >span{
-    animation:flip 2s infinite;
-    display: inline-block;
-    transform-origin:50% 50% -10px;
-    transform-style: preserve-3d;
-    @for $i from 1 to 8{
-      &:nth-child(#{$i}){
-        animation-delay:$i/10+s;
-      }
-    }
-  }
-}
-@keyframes flip{
-  to{
-    transform: rotateX(1turn);
-  }
+.loading {
+	color: $app-red;
 }
 
 //animations

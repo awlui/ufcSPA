@@ -48,5 +48,9 @@ angular.module('ufcApp')
           })
         }]
       }
+    });
+
+    $routeProvider.when('/Events', {
+      templateUrl: 'src/templates/events.html'
     })
   }])

@@ -25,7 +25,7 @@ angular.module('ufcApp')
     return {
       restrict: 'E',
       transclude: true,
-      template: "<div class='loading' ng-if='isRouteLoading' ng-transclude></div>",
+      template: "<div ng-class='loading' ng-if='isRouteLoading' ng-transclude></div>",
       link: function(scope, elem, attrs) {
         scope.isRouteLoading = false;
         $rootScope.$on('$routeChangeStart', function() {
@@ -37,4 +37,20 @@ angular.module('ufcApp')
         });
       }
     }
-  }]);
+  }])
+
+  .directive('tabs', [function() {
+    return {
+      restrict: 'E',
+      transclude: true,
+      scope: true,
+      template: '<div class="tab-headers">' +
+                '<div ng-repeat="tab in tabs" ' +
+                'ng-click="selectTab($index)" ' +
+                'ng-class="{selected: isSelectedTab($index)}">' +
+                '<span ng-bind="tab.title"></span>' +
+                '</div>' + 
+                '</div>' +
+                '<div ng-transclude></div>'
+    }
+  }])

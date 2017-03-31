@@ -84,7 +84,6 @@ angular.module('ufcApp')
       if (!!fight.Opponent.profile_image) {
         return fight.Opponent.profile_image
       } else {
-        console.log(fight.WeightClass.Description)
         if (~fight.WeightClass.Description.indexOf('Women')) {
           return "http://imagec.ufc.com/http%253A%252F%252Fmedia.ufc.tv%252F%252Ffighter_images%252FShadow%252FUFCWomen_Headshot.png?w600-h600-tc1";
         } else {
