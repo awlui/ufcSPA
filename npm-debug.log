@@ -1,0 +1,547 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'grunt-protractor-cucumber',
+1 verbose cli   '--save-dev' ]
+2 info using npm@3.10.9
+3 info using node@v6.9.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData grunt-protractor-cucumber
+8 silly fetchNamedPackageData grunt-protractor-cucumber
+9 silly mapToRegistry name grunt-protractor-cucumber
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'grunt-protractor-cucumber',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'grunt-protractor-cucumber',
+12 silly mapToRegistry   name: 'grunt-protractor-cucumber',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/grunt-protractor-cucumber
+14 verbose get https://registry.npmjs.org/grunt-protractor-cucumber not expired, no request
+15 silly install normalizeTree
+16 silly loadCurrentTree Finishing
+17 silly loadIdealTree Starting
+18 silly install loadIdealTree
+19 silly cloneCurrentTree Starting
+20 silly install cloneCurrentTreeToIdealTree
+21 silly cloneCurrentTree Finishing
+22 silly loadShrinkwrap Starting
+23 silly install loadShrinkwrap
+24 silly loadShrinkwrap Finishing
+25 silly loadAllDepsIntoIdealTree Starting
+26 silly install loadAllDepsIntoIdealTree
+27 silly resolveWithNewModule grunt-protractor-cucumber@0.5.4 checking installable status
+28 silly cache add args [ 'grunt-protractor-cucumber', null ]
+29 verbose cache add spec grunt-protractor-cucumber
+30 silly cache add parsed spec Result {
+30 silly cache add   raw: 'grunt-protractor-cucumber',
+30 silly cache add   scope: null,
+30 silly cache add   escapedName: 'grunt-protractor-cucumber',
+30 silly cache add   name: 'grunt-protractor-cucumber',
+30 silly cache add   rawSpec: '',
+30 silly cache add   spec: 'latest',
+30 silly cache add   type: 'tag' }
+31 silly addNamed grunt-protractor-cucumber@latest
+32 verbose addNamed "latest" is being treated as a dist-tag for grunt-protractor-cucumber
+33 info addNameTag [ 'grunt-protractor-cucumber', 'latest' ]
+34 silly mapToRegistry name grunt-protractor-cucumber
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry data Result {
+37 silly mapToRegistry   raw: 'grunt-protractor-cucumber',
+37 silly mapToRegistry   scope: null,
+37 silly mapToRegistry   escapedName: 'grunt-protractor-cucumber',
+37 silly mapToRegistry   name: 'grunt-protractor-cucumber',
+37 silly mapToRegistry   rawSpec: '',
+37 silly mapToRegistry   spec: 'latest',
+37 silly mapToRegistry   type: 'tag' }
+38 silly mapToRegistry uri https://registry.npmjs.org/grunt-protractor-cucumber
+39 verbose addNameTag registry:https://registry.npmjs.org/grunt-protractor-cucumber not in flight; fetching
+40 verbose get https://registry.npmjs.org/grunt-protractor-cucumber not expired, no request
+41 silly addNameTag next cb for grunt-protractor-cucumber with tag latest
+42 silly addNamed grunt-protractor-cucumber@0.5.4
+43 verbose addNamed "0.5.4" is a plain semver version for grunt-protractor-cucumber
+44 silly cache afterAdd grunt-protractor-cucumber@0.5.4
+45 verbose afterAdd /Users/andylui/.npm/grunt-protractor-cucumber/0.5.4/package/package.json not in flight; writing
+46 verbose correctMkdir /Users/andylui/.npm correctMkdir not in flight; initializing
+47 verbose afterAdd /Users/andylui/.npm/grunt-protractor-cucumber/0.5.4/package/package.json written
+48 silly fetchNamedPackageData lodash
+49 silly mapToRegistry name lodash
+50 silly mapToRegistry using default registry
+51 silly mapToRegistry registry https://registry.npmjs.org/
+52 silly mapToRegistry data Result {
+52 silly mapToRegistry   raw: 'lodash',
+52 silly mapToRegistry   scope: null,
+52 silly mapToRegistry   escapedName: 'lodash',
+52 silly mapToRegistry   name: 'lodash',
+52 silly mapToRegistry   rawSpec: '',
+52 silly mapToRegistry   spec: 'latest',
+52 silly mapToRegistry   type: 'tag' }
+53 silly mapToRegistry uri https://registry.npmjs.org/lodash
+54 silly fetchNamedPackageData yargs
+55 silly mapToRegistry name yargs
+56 silly mapToRegistry using default registry
+57 silly mapToRegistry registry https://registry.npmjs.org/
+58 silly mapToRegistry data Result {
+58 silly mapToRegistry   raw: 'yargs',
+58 silly mapToRegistry   scope: null,
+58 silly mapToRegistry   escapedName: 'yargs',
+58 silly mapToRegistry   name: 'yargs',
+58 silly mapToRegistry   rawSpec: '',
+58 silly mapToRegistry   spec: 'latest',
+58 silly mapToRegistry   type: 'tag' }
+59 silly mapToRegistry uri https://registry.npmjs.org/yargs
+60 silly fetchNamedPackageData cucumber
+61 silly mapToRegistry name cucumber
+62 silly mapToRegistry using default registry
+63 silly mapToRegistry registry https://registry.npmjs.org/
+64 silly mapToRegistry data Result {
+64 silly mapToRegistry   raw: 'cucumber',
+64 silly mapToRegistry   scope: null,
+64 silly mapToRegistry   escapedName: 'cucumber',
+64 silly mapToRegistry   name: 'cucumber',
+64 silly mapToRegistry   rawSpec: '',
+64 silly mapToRegistry   spec: 'latest',
+64 silly mapToRegistry   type: 'tag' }
+65 silly mapToRegistry uri https://registry.npmjs.org/cucumber
+66 silly fetchNamedPackageData grunt-protractor-cucumber-html-report
+67 silly mapToRegistry name grunt-protractor-cucumber-html-report
+68 silly mapToRegistry using default registry
+69 silly mapToRegistry registry https://registry.npmjs.org/
+70 silly mapToRegistry data Result {
+70 silly mapToRegistry   raw: 'grunt-protractor-cucumber-html-report',
+70 silly mapToRegistry   scope: null,
+70 silly mapToRegistry   escapedName: 'grunt-protractor-cucumber-html-report',
+70 silly mapToRegistry   name: 'grunt-protractor-cucumber-html-report',
+70 silly mapToRegistry   rawSpec: '',
+70 silly mapToRegistry   spec: 'latest',
+70 silly mapToRegistry   type: 'tag' }
+71 silly mapToRegistry uri https://registry.npmjs.org/grunt-protractor-cucumber-html-report
+72 silly fetchOtherPackageData protractor@git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1
+73 silly cache add args [ 'protractor@git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1',
+73 silly cache add   null ]
+74 verbose cache add spec protractor@git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1
+75 silly cache add parsed spec Result {
+75 silly cache add   raw: 'protractor@git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1',
+75 silly cache add   scope: null,
+75 silly cache add   escapedName: 'protractor',
+75 silly cache add   name: 'protractor',
+75 silly cache add   rawSpec: 'git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1',
+75 silly cache add   spec: 'http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1',
+75 silly cache add   type: 'git' }
+76 verbose addRemoteGit caching git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1
+77 silly tryClone cloning git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1 via git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1
+78 verbose tryClone git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105 not in flight; caching
+79 verbose correctMkdir /Users/andylui/.npm/_git-remotes correctMkdir not in flight; initializing
+80 verbose get https://registry.npmjs.org/grunt-protractor-cucumber-html-report not expired, no request
+81 silly resolveWithNewModule grunt-protractor-cucumber-html-report@0.2.8 checking installable status
+82 silly cache add args [ 'grunt-protractor-cucumber-html-report@latest', null ]
+83 verbose cache add spec grunt-protractor-cucumber-html-report@latest
+84 verbose get https://registry.npmjs.org/lodash not expired, no request
+85 silly resolveWithNewModule lodash@4.17.4 checking installable status
+86 silly cache add args [ 'lodash@^4.3.0', null ]
+87 verbose cache add spec lodash@^4.3.0
+88 silly cache add parsed spec Result {
+88 silly cache add   raw: 'lodash@^4.3.0',
+88 silly cache add   scope: null,
+88 silly cache add   escapedName: 'lodash',
+88 silly cache add   name: 'lodash',
+88 silly cache add   rawSpec: '^4.3.0',
+88 silly cache add   spec: '>=4.3.0 <5.0.0',
+88 silly cache add   type: 'range' }
+89 silly addNamed lodash@>=4.3.0 <5.0.0
+90 verbose addNamed ">=4.3.0 <5.0.0" is a valid semver range for lodash
+91 silly addNameRange { name: 'lodash', range: '>=4.3.0 <5.0.0', hasData: false }
+92 silly mapToRegistry name lodash
+93 silly mapToRegistry using default registry
+94 silly mapToRegistry registry https://registry.npmjs.org/
+95 silly mapToRegistry data Result {
+95 silly mapToRegistry   raw: 'lodash',
+95 silly mapToRegistry   scope: null,
+95 silly mapToRegistry   escapedName: 'lodash',
+95 silly mapToRegistry   name: 'lodash',
+95 silly mapToRegistry   rawSpec: '',
+95 silly mapToRegistry   spec: 'latest',
+95 silly mapToRegistry   type: 'tag' }
+96 silly mapToRegistry uri https://registry.npmjs.org/lodash
+97 verbose addNameRange registry:https://registry.npmjs.org/lodash not in flight; fetching
+98 silly cache add parsed spec Result {
+98 silly cache add   raw: 'grunt-protractor-cucumber-html-report@latest',
+98 silly cache add   scope: null,
+98 silly cache add   escapedName: 'grunt-protractor-cucumber-html-report',
+98 silly cache add   name: 'grunt-protractor-cucumber-html-report',
+98 silly cache add   rawSpec: 'latest',
+98 silly cache add   spec: 'latest',
+98 silly cache add   type: 'tag' }
+99 silly addNamed grunt-protractor-cucumber-html-report@latest
+100 verbose addNamed "latest" is being treated as a dist-tag for grunt-protractor-cucumber-html-report
+101 info addNameTag [ 'grunt-protractor-cucumber-html-report', 'latest' ]
+102 silly mapToRegistry name grunt-protractor-cucumber-html-report
+103 silly mapToRegistry using default registry
+104 silly mapToRegistry registry https://registry.npmjs.org/
+105 silly mapToRegistry data Result {
+105 silly mapToRegistry   raw: 'grunt-protractor-cucumber-html-report',
+105 silly mapToRegistry   scope: null,
+105 silly mapToRegistry   escapedName: 'grunt-protractor-cucumber-html-report',
+105 silly mapToRegistry   name: 'grunt-protractor-cucumber-html-report',
+105 silly mapToRegistry   rawSpec: '',
+105 silly mapToRegistry   spec: 'latest',
+105 silly mapToRegistry   type: 'tag' }
+106 silly mapToRegistry uri https://registry.npmjs.org/grunt-protractor-cucumber-html-report
+107 verbose addNameTag registry:https://registry.npmjs.org/grunt-protractor-cucumber-html-report not in flight; fetching
+108 verbose get https://registry.npmjs.org/yargs not expired, no request
+109 silly resolveWithNewModule yargs@3.32.0 checking installable status
+110 silly cache add args [ 'yargs@^3.32.0', null ]
+111 verbose cache add spec yargs@^3.32.0
+112 silly cache add parsed spec Result {
+112 silly cache add   raw: 'yargs@^3.32.0',
+112 silly cache add   scope: null,
+112 silly cache add   escapedName: 'yargs',
+112 silly cache add   name: 'yargs',
+112 silly cache add   rawSpec: '^3.32.0',
+112 silly cache add   spec: '>=3.32.0 <4.0.0',
+112 silly cache add   type: 'range' }
+113 silly addNamed yargs@>=3.32.0 <4.0.0
+114 verbose addNamed ">=3.32.0 <4.0.0" is a valid semver range for yargs
+115 silly addNameRange { name: 'yargs', range: '>=3.32.0 <4.0.0', hasData: false }
+116 silly mapToRegistry name yargs
+117 silly mapToRegistry using default registry
+118 silly mapToRegistry registry https://registry.npmjs.org/
+119 silly mapToRegistry data Result {
+119 silly mapToRegistry   raw: 'yargs',
+119 silly mapToRegistry   scope: null,
+119 silly mapToRegistry   escapedName: 'yargs',
+119 silly mapToRegistry   name: 'yargs',
+119 silly mapToRegistry   rawSpec: '',
+119 silly mapToRegistry   spec: 'latest',
+119 silly mapToRegistry   type: 'tag' }
+120 silly mapToRegistry uri https://registry.npmjs.org/yargs
+121 verbose addNameRange registry:https://registry.npmjs.org/yargs not in flight; fetching
+122 verbose get https://registry.npmjs.org/cucumber not expired, no request
+123 silly resolveWithNewModule cucumber@0.9.5 checking installable status
+124 silly cache add args [ 'cucumber@v0.9.5', null ]
+125 verbose cache add spec cucumber@v0.9.5
+126 silly cache add parsed spec Result {
+126 silly cache add   raw: 'cucumber@v0.9.5',
+126 silly cache add   scope: null,
+126 silly cache add   escapedName: 'cucumber',
+126 silly cache add   name: 'cucumber',
+126 silly cache add   rawSpec: 'v0.9.5',
+126 silly cache add   spec: '0.9.5',
+126 silly cache add   type: 'version' }
+127 silly addNamed cucumber@0.9.5
+128 verbose addNamed "0.9.5" is a plain semver version for cucumber
+129 silly mapToRegistry name cucumber
+130 silly mapToRegistry using default registry
+131 silly mapToRegistry registry https://registry.npmjs.org/
+132 silly mapToRegistry data Result {
+132 silly mapToRegistry   raw: 'cucumber',
+132 silly mapToRegistry   scope: null,
+132 silly mapToRegistry   escapedName: 'cucumber',
+132 silly mapToRegistry   name: 'cucumber',
+132 silly mapToRegistry   rawSpec: '',
+132 silly mapToRegistry   spec: 'latest',
+132 silly mapToRegistry   type: 'tag' }
+133 silly mapToRegistry uri https://registry.npmjs.org/cucumber
+134 verbose addNameVersion registry:https://registry.npmjs.org/cucumber not in flight; fetching
+135 info git [ 'clone',
+135 info git   '--template=/Users/andylui/.npm/_git-remotes/_templates',
+135 info git   '--mirror',
+135 info git   'http://bitbucket.es.ad.adp.com/scm/bn/protractor.git',
+135 info git   '/Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105' ]
+136 verbose get https://registry.npmjs.org/grunt-protractor-cucumber-html-report not expired, no request
+137 silly addNameTag next cb for grunt-protractor-cucumber-html-report with tag latest
+138 silly addNamed grunt-protractor-cucumber-html-report@0.2.8
+139 verbose addNamed "0.2.8" is a plain semver version for grunt-protractor-cucumber-html-report
+140 verbose get https://registry.npmjs.org/lodash not expired, no request
+141 silly addNameRange number 2 { name: 'lodash', range: '>=4.3.0 <5.0.0', hasData: true }
+142 silly addNameRange versions [ 'lodash',
+142 silly addNameRange   [ '0.1.0',
+142 silly addNameRange     '0.2.0',
+142 silly addNameRange     '0.2.1',
+142 silly addNameRange     '0.2.2',
+142 silly addNameRange     '0.3.0',
+142 silly addNameRange     '0.3.1',
+142 silly addNameRange     '0.3.2',
+142 silly addNameRange     '0.4.0',
+142 silly addNameRange     '0.4.1',
+142 silly addNameRange     '0.4.2',
+142 silly addNameRange     '0.5.0-rc.1',
+142 silly addNameRange     '0.5.0',
+142 silly addNameRange     '0.5.1',
+142 silly addNameRange     '0.5.2',
+142 silly addNameRange     '0.6.0',
+142 silly addNameRange     '0.6.1',
+142 silly addNameRange     '0.7.0',
+142 silly addNameRange     '0.8.0',
+142 silly addNameRange     '0.8.1',
+142 silly addNameRange     '0.8.2',
+142 silly addNameRange     '0.9.0',
+142 silly addNameRange     '0.9.1',
+142 silly addNameRange     '0.9.2',
+142 silly addNameRange     '0.10.0',
+142 silly addNameRange     '1.0.0-rc.1',
+142 silly addNameRange     '1.0.0-rc.2',
+142 silly addNameRange     '1.0.0-rc.3',
+142 silly addNameRange     '1.0.0',
+142 silly addNameRange     '1.0.1',
+142 silly addNameRange     '1.1.0',
+142 silly addNameRange     '1.1.1',
+142 silly addNameRange     '1.2.0',
+142 silly addNameRange     '1.2.1',
+142 silly addNameRange     '1.3.0',
+142 silly addNameRange     '1.3.1',
+142 silly addNameRange     '2.0.0',
+142 silly addNameRange     '2.1.0',
+142 silly addNameRange     '2.2.0',
+142 silly addNameRange     '2.2.1',
+142 silly addNameRange     '2.3.0',
+142 silly addNameRange     '2.4.0',
+142 silly addNameRange     '2.4.1',
+142 silly addNameRange     '3.0.0',
+142 silly addNameRange     '3.0.1',
+142 silly addNameRange     '3.1.0',
+142 silly addNameRange     '3.2.0',
+142 silly addNameRange     '3.3.0',
+142 silly addNameRange     '3.3.1',
+142 silly addNameRange     '3.4.0',
+142 silly addNameRange     '3.5.0',
+142 silly addNameRange     '3.6.0',
+142 silly addNameRange     '1.0.2',
+142 silly addNameRange     '3.7.0',
+142 silly addNameRange     '2.4.2',
+142 silly addNameRange     '3.8.0',
+142 silly addNameRange     '3.9.0',
+142 silly addNameRange     '3.9.1',
+142 silly addNameRange     '3.9.2',
+142 silly addNameRange     '3.9.3',
+142 silly addNameRange     '3.10.0',
+142 silly addNameRange     '3.10.1',
+142 silly addNameRange     '4.0.0',
+142 silly addNameRange     '4.0.1',
+142 silly addNameRange     '4.1.0',
+142 silly addNameRange     '4.2.0',
+142 silly addNameRange     '4.2.1',
+142 silly addNameRange     '4.3.0',
+142 silly addNameRange     '4.4.0',
+142 silly addNameRange     '4.5.0',
+142 silly addNameRange     '4.5.1',
+142 silly addNameRange     '4.6.0',
+142 silly addNameRange     '4.6.1',
+142 silly addNameRange     '4.7.0',
+142 silly addNameRange     '4.8.0',
+142 silly addNameRange     '4.8.1',
+142 silly addNameRange     '4.8.2',
+142 silly addNameRange     '4.9.0',
+142 silly addNameRange     '4.10.0',
+142 silly addNameRange     '4.11.0',
+142 silly addNameRange     '4.11.1',
+142 silly addNameRange     '4.11.2',
+142 silly addNameRange     '4.12.0',
+142 silly addNameRange     '4.13.0',
+142 silly addNameRange     '4.13.1',
+142 silly addNameRange     '4.14.0',
+142 silly addNameRange     '4.14.1',
+142 silly addNameRange     '4.14.2',
+142 silly addNameRange     '4.15.0',
+142 silly addNameRange     '4.16.0',
+142 silly addNameRange     '4.16.1',
+142 silly addNameRange     '4.16.2',
+142 silly addNameRange     '4.16.3',
+142 silly addNameRange     '4.16.4',
+142 silly addNameRange     '4.16.5',
+142 silly addNameRange     '4.16.6',
+142 silly addNameRange     '4.17.0',
+142 silly addNameRange     '4.17.1',
+142 silly addNameRange     '4.17.2',
+142 silly addNameRange     '4.17.3',
+142 silly addNameRange     '4.17.4' ] ]
+143 silly addNamed lodash@4.17.4
+144 verbose addNamed "4.17.4" is a plain semver version for lodash
+145 verbose get https://registry.npmjs.org/cucumber not expired, no request
+146 verbose get https://registry.npmjs.org/yargs not expired, no request
+147 silly addNameRange number 2 { name: 'yargs', range: '>=3.32.0 <4.0.0', hasData: true }
+148 silly addNameRange versions [ 'yargs',
+148 silly addNameRange   [ '1.0.0',
+148 silly addNameRange     '1.0.1',
+148 silly addNameRange     '1.0.3',
+148 silly addNameRange     '1.0.4',
+148 silly addNameRange     '1.0.5',
+148 silly addNameRange     '1.0.6',
+148 silly addNameRange     '1.0.7',
+148 silly addNameRange     '1.0.8',
+148 silly addNameRange     '1.0.9',
+148 silly addNameRange     '1.0.10',
+148 silly addNameRange     '1.0.11',
+148 silly addNameRange     '1.0.12',
+148 silly addNameRange     '1.0.13',
+148 silly addNameRange     '1.0.15',
+148 silly addNameRange     '1.1.0',
+148 silly addNameRange     '1.1.1',
+148 silly addNameRange     '1.1.2',
+148 silly addNameRange     '1.1.3',
+148 silly addNameRange     '1.2.0',
+148 silly addNameRange     '1.2.1',
+148 silly addNameRange     '1.2.2',
+148 silly addNameRange     '1.2.3',
+148 silly addNameRange     '1.2.4',
+148 silly addNameRange     '1.2.5',
+148 silly addNameRange     '1.2.6',
+148 silly addNameRange     '1.3.0',
+148 silly addNameRange     '1.3.1',
+148 silly addNameRange     '1.3.2',
+148 silly addNameRange     '1.3.3',
+148 silly addNameRange     '2.1.1',
+148 silly addNameRange     '2.3.0',
+148 silly addNameRange     '3.0.0',
+148 silly addNameRange     '3.0.1',
+148 silly addNameRange     '3.0.2',
+148 silly addNameRange     '3.0.3',
+148 silly addNameRange     '3.0.4',
+148 silly addNameRange     '3.1.0',
+148 silly addNameRange     '3.2.1',
+148 silly addNameRange     '3.3.1',
+148 silly addNameRange     '3.4.0',
+148 silly addNameRange     '3.4.4',
+148 silly addNameRange     '3.4.5',
+148 silly addNameRange     '3.5.0',
+148 silly addNameRange     '3.5.1',
+148 silly addNameRange     '3.5.2',
+148 silly addNameRange     '3.5.3',
+148 silly addNameRange     '3.5.4',
+148 silly addNameRange     '3.6.0',
+148 silly addNameRange     '3.7.0',
+148 silly addNameRange     '3.7.1',
+148 silly addNameRange     '3.7.2',
+148 silly addNameRange     '3.8.0',
+148 silly addNameRange     '3.9.0',
+148 silly addNameRange     '3.9.1',
+148 silly addNameRange     '3.10.0',
+148 silly addNameRange     '3.11.0',
+148 silly addNameRange     '3.12.0',
+148 silly addNameRange     '3.13.0',
+148 silly addNameRange     '3.14.0',
+148 silly addNameRange     '3.15.0',
+148 silly addNameRange     '3.16.0',
+148 silly addNameRange     '3.16.1',
+148 silly addNameRange     '3.17.1',
+148 silly addNameRange     '3.18.0',
+148 silly addNameRange     '3.18.1',
+148 silly addNameRange     '3.19.0',
+148 silly addNameRange     '3.20.0',
+148 silly addNameRange     '3.21.0',
+148 silly addNameRange     '3.21.1',
+148 silly addNameRange     '3.22.0',
+148 silly addNameRange     '3.22.1',
+148 silly addNameRange     '3.22.2',
+148 silly addNameRange     '3.23.0',
+148 silly addNameRange     '3.24.0',
+148 silly addNameRange     '3.25.0',
+148 silly addNameRange     '3.26.0',
+148 silly addNameRange     '3.27.0',
+148 silly addNameRange     '3.28.0',
+148 silly addNameRange     '3.29.0',
+148 silly addNameRange     '3.30.0',
+148 silly addNameRange     '3.31.0',
+148 silly addNameRange     '3.32.0',
+148 silly addNameRange     '4.0.0-alpha1',
+148 silly addNameRange     '4.0.0-alpha2',
+148 silly addNameRange     '4.0.0-alpha3',
+148 silly addNameRange     '4.0.0-alpha4',
+148 silly addNameRange     '4.0.0-alpha5',
+148 silly addNameRange     '4.0.0',
+148 silly addNameRange     '4.1.0',
+148 silly addNameRange     '4.2.0',
+148 silly addNameRange     '4.3.0',
+148 silly addNameRange     '4.3.1',
+148 silly addNameRange     '4.3.2',
+148 silly addNameRange     '4.4.0',
+148 silly addNameRange     '4.5.0',
+148 silly addNameRange     '4.6.0-candidate',
+148 silly addNameRange     '4.6.0',
+148 silly addNameRange     '4.7.0-pre',
+148 silly addNameRange     '4.7.0',
+148 silly addNameRange     '4.7.1',
+148 silly addNameRange     ... 33 more items ] ]
+149 silly addNamed yargs@3.32.0
+150 verbose addNamed "3.32.0" is a plain semver version for yargs
+151 error git clone --template=/Users/andylui/.npm/_git-remotes/_templates --mirror http://bitbucket.es.ad.adp.com/scm/bn/protractor.git /Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105: Cloning into bare repository '/Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105'...
+151 error git clone --template=/Users/andylui/.npm/_git-remotes/_templates --mirror http://bitbucket.es.ad.adp.com/scm/bn/protractor.git /Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105: fatal: unable to access 'http://bitbucket.es.ad.adp.com/scm/bn/protractor.git/': Could not resolve host: bitbucket.es.ad.adp.com
+152 silly fetchPackageMetaData Error: Command failed: git clone --template=/Users/andylui/.npm/_git-remotes/_templates --mirror http://bitbucket.es.ad.adp.com/scm/bn/protractor.git /Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105
+152 silly fetchPackageMetaData Cloning into bare repository '/Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105'...
+152 silly fetchPackageMetaData fatal: unable to access 'http://bitbucket.es.ad.adp.com/scm/bn/protractor.git/': Could not resolve host: bitbucket.es.ad.adp.com
+152 silly fetchPackageMetaData
+152 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:206:12)
+152 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+152 silly fetchPackageMetaData     at ChildProcess.emit (events.js:191:7)
+152 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:877:16)
+152 silly fetchPackageMetaData     at Socket.<anonymous> (internal/child_process.js:334:11)
+152 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+152 silly fetchPackageMetaData     at Socket.emit (events.js:188:7)
+152 silly fetchPackageMetaData     at Pipe._handle.close [as _onclose] (net.js:498:12)
+152 silly fetchPackageMetaData  error for protractor@git+http://bitbucket.es.ad.adp.com/scm/bn/protractor.git#redbox/v2.5.1 { Error: Command failed: git clone --template=/Users/andylui/.npm/_git-remotes/_templates --mirror http://bitbucket.es.ad.adp.com/scm/bn/protractor.git /Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105
+152 silly fetchPackageMetaData Cloning into bare repository '/Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105'...
+152 silly fetchPackageMetaData fatal: unable to access 'http://bitbucket.es.ad.adp.com/scm/bn/protractor.git/': Could not resolve host: bitbucket.es.ad.adp.com
+152 silly fetchPackageMetaData
+152 silly fetchPackageMetaData     at ChildProcess.exithandler (child_process.js:206:12)
+152 silly fetchPackageMetaData     at emitTwo (events.js:106:13)
+152 silly fetchPackageMetaData     at ChildProcess.emit (events.js:191:7)
+152 silly fetchPackageMetaData     at maybeClose (internal/child_process.js:877:16)
+152 silly fetchPackageMetaData     at Socket.<anonymous> (internal/child_process.js:334:11)
+152 silly fetchPackageMetaData     at emitOne (events.js:96:13)
+152 silly fetchPackageMetaData     at Socket.emit (events.js:188:7)
+152 silly fetchPackageMetaData     at Pipe._handle.close [as _onclose] (net.js:498:12)
+152 silly fetchPackageMetaData   killed: false,
+152 silly fetchPackageMetaData   code: 128,
+152 silly fetchPackageMetaData   signal: null,
+152 silly fetchPackageMetaData   cmd: 'git clone --template=/Users/andylui/.npm/_git-remotes/_templates --mirror http://bitbucket.es.ad.adp.com/scm/bn/protractor.git /Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105' }
+153 silly cache afterAdd grunt-protractor-cucumber-html-report@0.2.8
+154 verbose afterAdd /Users/andylui/.npm/grunt-protractor-cucumber-html-report/0.2.8/package/package.json not in flight; writing
+155 verbose correctMkdir /Users/andylui/.npm correctMkdir not in flight; initializing
+156 silly cache afterAdd yargs@3.32.0
+157 verbose afterAdd /Users/andylui/.npm/yargs/3.32.0/package/package.json not in flight; writing
+158 verbose correctMkdir /Users/andylui/.npm correctMkdir not in flight; initializing
+159 silly cache afterAdd lodash@4.17.4
+160 verbose afterAdd /Users/andylui/.npm/lodash/4.17.4/package/package.json not in flight; writing
+161 verbose correctMkdir /Users/andylui/.npm correctMkdir not in flight; initializing
+162 silly cache afterAdd cucumber@0.9.5
+163 verbose afterAdd /Users/andylui/.npm/cucumber/0.9.5/package/package.json not in flight; writing
+164 verbose correctMkdir /Users/andylui/.npm correctMkdir not in flight; initializing
+165 verbose afterAdd /Users/andylui/.npm/cucumber/0.9.5/package/package.json written
+166 verbose afterAdd /Users/andylui/.npm/yargs/3.32.0/package/package.json written
+167 verbose afterAdd /Users/andylui/.npm/grunt-protractor-cucumber-html-report/0.2.8/package/package.json written
+168 verbose afterAdd /Users/andylui/.npm/lodash/4.17.4/package/package.json written
+169 silly rollbackFailedOptional Starting
+170 silly rollbackFailedOptional Finishing
+171 silly runTopLevelLifecycles Finishing
+172 silly install printInstalled
+173 verbose stack Error: Command failed: git clone --template=/Users/andylui/.npm/_git-remotes/_templates --mirror http://bitbucket.es.ad.adp.com/scm/bn/protractor.git /Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105
+173 verbose stack Cloning into bare repository '/Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105'...
+173 verbose stack fatal: unable to access 'http://bitbucket.es.ad.adp.com/scm/bn/protractor.git/': Could not resolve host: bitbucket.es.ad.adp.com
+173 verbose stack
+173 verbose stack     at ChildProcess.exithandler (child_process.js:206:12)
+173 verbose stack     at emitTwo (events.js:106:13)
+173 verbose stack     at ChildProcess.emit (events.js:191:7)
+173 verbose stack     at maybeClose (internal/child_process.js:877:16)
+173 verbose stack     at Socket.<anonymous> (internal/child_process.js:334:11)
+173 verbose stack     at emitOne (events.js:96:13)
+173 verbose stack     at Socket.emit (events.js:188:7)
+173 verbose stack     at Pipe._handle.close [as _onclose] (net.js:498:12)
+174 verbose cwd /Users/andylui/Desktop/Git/ufc
+175 error Darwin 16.4.0
+176 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "grunt-protractor-cucumber" "--save-dev"
+177 error node v6.9.2
+178 error npm  v3.10.9
+179 error code 128
+180 error Command failed: git clone --template=/Users/andylui/.npm/_git-remotes/_templates --mirror http://bitbucket.es.ad.adp.com/scm/bn/protractor.git /Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105
+180 error Cloning into bare repository '/Users/andylui/.npm/_git-remotes/git-http-bitbucket-es-ad-adp-com-scm-bn-protractor-git-redbox-v2-5-1-44ad1105'...
+180 error fatal: unable to access 'http://bitbucket.es.ad.adp.com/scm/bn/protractor.git/': Could not resolve host: bitbucket.es.ad.adp.com
+181 error If you need help, you may report this error at:
+181 error     <https://github.com/npm/npm/issues>
+182 verbose exit [ 1, true ]
