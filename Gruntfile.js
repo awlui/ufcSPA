@@ -1,5 +1,11 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
+		concat: {
+			app: {
+				src: ['angularApp/**/*.js', '!angularApp/javascripts/*.js'],
+				dest: 'public/mainApp.js'
+			}
+		},
 		nodemon: {
 			dev: {
 				script: 'server.js'
@@ -13,7 +19,7 @@ module.exports = function(grunt) {
 		sass: {
 			dev: {
 				files: {
-					'./public/stylesheets/main.css': './src/stylesheets/*.scss'
+					'./public/stylesheets/main.css': './angularApp/stylesheets/*.scss'
 				}
 			}
 		},
@@ -23,12 +29,12 @@ module.exports = function(grunt) {
 					livereload: true
 				},
 				files: [
-					'public/**.*.{css,js}', '*.html'
+					'angularApp/**.*.{css,js,html}'
 				]
 			},
 			sass: {
 				tasks: ['sass:dev'],
-				files: ['./src/stylesheets/*.scss']
+				files: ['./angularApp/stylesheets/*.scss']
 			}
 		},
 	});
@@ -36,4 +42,5 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-concurrent');
 	grunt.loadNpmTasks('grunt-nodemon');
+	grunt.loadNpmTasks('grunt-contrib-concat');
 }

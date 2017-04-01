@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+		<link rel="stylesheet" href="public/stylesheets/main.css">
+
+	</head>
+	<body ng-app="ufcApp">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<a href="#"><h1>ng-UFC</h1></a>
+				<route-loading-indicator class="animated pulse infinite">Loading...</route-loading-indicator>
+
+			</div>
+		</nav>
+		<aside>
+			<div class="navbar">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#!/Fighters">Fighters</a></li>
+					<li><a href="#!/Events">Events</a></li>
+					<li><a href="#">Media</a></li>
+				</ul>
+			</div>
+			<div id="triangle"></div>
+		</aside>
+		<div class="wrapper">
+			<div class="backdrop">
+				
+			</div>
+			<div class="container" ng-view>
+<!-- 				<div class="row">
+					<div class="col-xs-12 home">
+						<h2>Welcome to my page</h2>
+						<p>This application is about all things UFC. It connects with the official UFC API, which needs some real work actually, to provide up to date information on fighters, upcoming/past fights, and various UFC-related articles. </p></br>
+						<p>UFC has come a long way in regards to how I viewed it as a sport. It can definitely be a bit gruesome at times but there is a certain beauty in it that can be seen by those who are willing.</p>
+						<h3>Developer Notes</h3>
+						<ul>
+							<li>The centerpiece of this application is AngularJS 1.x.</li>
+							<li>I use primarily Node.js and npm as the environment I develop in.</li>
+							<li>I will implement some testing into this application as well. I expect this application to be something I will work on from time to time.</li>
+							<li>Initially, there won't be much custom back-end involved for this application as I will rely entirely on UFC's API for data; however, I may implement user authentication through Rails' Devise gem if I want to take advantage of the UFC API's support for live events. I'd like to perhaps do something similar to what Yahoo sports does with their fantasy league, which I've never used before so may need to read up on.</li>
+						</ul>
+					</div>
+				</div> -->
+			</div>
+		</div>
+		<div class="mobileAside">
+			<ul>
+				<li><a href="#">Home</a> /</li>
+				<li><a href="#!/Fighters"> Fighter</a> /</li>
+				<li> <a href="#!/Events">Events</a> /</li>
+				<li> <a href="#">Media</a></li>
+			</ul>
+		</div>
+		<footer>
+			<h2>Thanks for visiting!</h2>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<p class="animated bounce infinite">Credits to UFC for their terrible, yet functional, API.</p>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<p>Credits to me too, of course!</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+		<script src="public/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-resource.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+<!-- 		<script src="src/javascripts/angularApp/app.js"></script>
+		<script src="src/javascripts/angularApp/config/routes.js"></script>
+		<script src="src/javascripts/angularApp/filters/index.js"></script>
+		<script src="src/javascripts/angularApp/services/index.js"></script>
+		<script src="src/javascripts/angularApp/directives/index.js"></script> -->
+		<script src="public/mainApp.js"></script>
+		<script src="http://localhost:35729/"></script>
+
+	</body>
+</html>

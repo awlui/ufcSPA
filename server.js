@@ -9,11 +9,12 @@ app.set('port', port);
 app.use(logger('dev'));
 
 app.get('/', function(req, res, next) {
-	res.sendFile(path.join(__dirname, 'index.html'));
+	res.sendFile(path.join(__dirname, 'angularApp', 'index.html'));
 });
-app.use('/src', express.static(path.join(__dirname, 'src')));
+app.use('/', express.static(path.join(__dirname, 'angularApp')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
-app.use('/node_modules', express.static(path.join(__dirname, 'node_modules')));
+
+
 app.use(api);
 var server = http.createServer(app);
 server.listen(app.get('port'), function() {
