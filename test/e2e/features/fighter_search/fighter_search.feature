@@ -1,4 +1,4 @@
-Feature: Users can find a fighter on the Fighter Search Page with valid options
+Feature: Users can find a fighter on the Fighter Search Page
 	
 	Scenario: By clicking on a fighter in the scrollbox without scrolling
 		Given I go to "localhost:3000/#!/Fighters"
