@@ -6,7 +6,7 @@
 				<span>Pages</span>
 				<tabs class="events_page col-xs-12">
 					<tab title="{{$index}}" ng-repeat="eventPage in mainCtrl.eventSplit.upcomingDates">
-						<div class="event col-xs-12 col-md-6" ng-repeat="event in eventPage">
+						<div class="clearfix event col-xs-12 col-md-6" ng-repeat="event in eventPage">
 							<a href='{{"#!/Events/" + event.id}}'>
 							<h2>{{event.base_title}}</h2>
 							<h3>{{event.title_tag_line || ""}}</h3>

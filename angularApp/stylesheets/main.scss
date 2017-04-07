@@ -126,7 +126,7 @@ div#triangle {
 
 
 .mobileAside {
-	z-index: 750;
+	z-index: 500;
 	position: fixed;
 	bottom: -50px;
 	background-color: $app-red;
@@ -160,7 +160,7 @@ div#triangle {
 	}
 }
 footer {
-	z-index: 1000;
+	z-index: 750;
 	position: relative;
 	width: 100%;
 	bottom: 0;
@@ -403,7 +403,7 @@ route-loading-indicator {
 			div.event {
 				background-color: rgba(255,255,255,0);
 				text-align: center;
-				height: 500px;
+				height: auto;
 				margin-bottom: 20px;
 				a {
 					border-radius: 5px;
@@ -499,6 +499,63 @@ route-loading-indicator {
 			}
 		}
 	}
+}
+.news {
+	border-radius: 10px 0;
+	padding: 20px;
+}
+carousel {
+	position: relative;
+	padding: 0 30px;
+	animation-name: slideIn;
+	animation-delay: 0.5s;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	opacity: 0;
+	.carouselUnit {
+		margin: 0 auto;
+		&:hover a>div {
+			opacity: 1;
+		}
+	}
+
+	a {
+		display: inline-block;
+		margin: 0 auto;
+		position: relative;
+		width: 100%;
+		height: 100%;
+		text-decoration: none;
+		&:hover {
+			text-decoration: none;
+			& > div {
+				background-color: rgba(0,0,0,0.75);
+				opacity: 1;
+			}
+		}
+		img {
+			width: 90%;
+			margin: 0 auto;
+		}
+		& > div {
+			margin-left: 5%;
+			width: 90%;
+			opacity: 0;
+			color: white;
+			height: 150px;
+			position: absolute;
+			bottom: 0;
+			padding: 10px;
+			transition: opacity 2s;
+			@media (max-width: $screen-md) {
+				font-size: 0.6em;
+			}
+			@media (max-width: $screen-md) {
+				display :none;
+			}
+		}
+	}
+
 }
 
 //animations

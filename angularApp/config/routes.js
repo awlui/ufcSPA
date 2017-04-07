@@ -5,8 +5,8 @@ angular.module('ufcApp')
   		templateUrl: "home/home.html",
       controller: ['articleList',function(articleList) {
         var self = this;
-        self.articles = articleList.data.splice(0,5);
-        console.log(self.articles)
+        self.articles = articleList.data.splice(1,5);
+
       }],
       controllerAs: 'mainCtrl',
       resolve: {
@@ -85,7 +85,6 @@ angular.module('ufcApp')
         var self = this;
         self.eventInfo = eventInfo.data;
         self.fightList = fightList.data;
-        console.log(self.fightList[0].fighter1_profile_image)
       }],
       controllerAs: 'mainCtrl',
       resolve: {

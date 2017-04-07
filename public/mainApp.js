@@ -1,6 +1,34 @@
 'use strict'
 angular.module('ufcApp', ['ngRoute']);
 angular.module('ufcApp')
+  .directive('carousel', ['$timeout', function($timeout) {
+  	return {
+  		restrict: 'E',
+  		transclude: true,
+  		templateUrl: 'home/carousel.html',
+  		scope: {
+  			carouselUnits: '='
+  		},
+  		link: function($scope,  $element, $attr) {
+  			$scope.carouselUnits.forEach(function(unit, index) {
+
+  				if (!unit.thumbnail) {
+  					$scope.carouselUnits.splice(index, 1);
+  				}
+  			});
+  			$timeout(function() {
+  				$('.carousel').slick({
+		// lazyLoad: 'ondemand',
+		infinite: true,
+		autoplay: false,
+		autoplaySpeed: 2000,
+  			})
+	}); 
+  		}
+
+  	}
+  }])
+angular.module('ufcApp')
   .directive('routeLoadingIndicator', ['$rootScope', function($rootScope) {
     return {
       restrict: 'E',
@@ -75,8 +103,8 @@ angular.module('ufcApp')
   		templateUrl: "home/home.html",
       controller: ['articleList',function(articleList) {
         var self = this;
-        self.articles = articleList.data.splice(0,5);
-        console.log(self.articles)
+        self.articles = articleList.data.splice(1,5);
+
       }],
       controllerAs: 'mainCtrl',
       resolve: {
@@ -155,7 +183,6 @@ angular.module('ufcApp')
         var self = this;
         self.eventInfo = eventInfo.data;
         self.fightList = fightList.data;
-        console.log(self.fightList[0].fighter1_profile_image)
       }],
       controllerAs: 'mainCtrl',
       resolve: {
@@ -252,17 +279,17 @@ angular.module('ufcApp')
   		split: split
   	}
   }]);
-$(function() {
-	angular.element('button').on('click', function() {
-	$('.carousel').slick({
-		// lazyLoad: 'ondemand',
-		infinite: true,
-		autoplay: true,
-		autoplaySpeed: 2000,
+// $(function() {
+// 	$('button').on('click', function() {
+// 	$('.carousel').slick({
+// 		// lazyLoad: 'ondemand',
+// 		infinite: true,
+// 		autoplay: true,
+// 		autoplaySpeed: 2000,
 
-	}); 
-	})
-});
+// 	}); 
+// 	})
+// });
 angular.module('ufcApp')
   .filter('locationFilter', [function() {
     return function(arr) {

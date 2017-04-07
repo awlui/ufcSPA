@@ -1,14 +1,27 @@
 angular.module('ufcApp')
-  .directive('carousel', [function() {
+  .directive('carousel', ['$timeout', function($timeout) {
   	return {
   		restrict: 'E',
   		transclude: true,
-  		template: '<div ng-transclude></div>',
+  		templateUrl: 'home/carousel.html',
   		scope: {
   			carouselUnits: '='
   		},
   		link: function($scope,  $element, $attr) {
-  			
+  			$scope.carouselUnits.forEach(function(unit, index) {
+
+  				if (!unit.thumbnail) {
+  					$scope.carouselUnits.splice(index, 1);
+  				}
+  			});
+  			$timeout(function() {
+  				$('.carousel').slick({
+		// lazyLoad: 'ondemand',
+		infinite: true,
+		autoplay: false,
+		autoplaySpeed: 2000,
+  			})
+	}); 
   		}
 
   	}

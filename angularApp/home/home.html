@@ -1,12 +1,6 @@
-<div class="row">
-	<div class="carousel">
-		<div class="carouselUnit" ng-repeat="article in mainCtrl.articles">
-			<img ng-src="{{article.thumbnail}}" alt="">
-<!-- 			<a href="" class="overlay">
-				<div>{{article.title}}</div>
-			</a> -->
-		</div>
-	</div>
+<div class="row news">
+	<carousel class="col-xs-12" carousel-units="mainCtrl.articles">
+	</carousel>
 </div>
 <div class="row">
 	<div class="col-xs-12 home">
