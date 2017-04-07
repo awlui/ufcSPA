@@ -32,7 +32,6 @@ nav.navbar {
 	}
 }
 .wrapper {
-	z-index: 1;
 	color: black;
 	min-height: 800px;
 	height: 100%;
@@ -55,7 +54,7 @@ nav.navbar {
 	}
 }
 .backdrop {
-	z-index: 1;
+	z-index: -1;
 	background-image: url("http://www.fxguide.com/wp-content/uploads/2012/10/VV045_comp_v37.1033.jpg?62f061");
 	background-size: contain;
 	background-position: 50%;
@@ -329,6 +328,177 @@ route-loading-indicator {
 
 .loading {
 	color: $app-red;
+}
+
+.fileNotFound {
+	z-index: 500;
+	padding: 10px;
+	height: 500px;
+	background-color: rgba(255,255,255,0.9);
+}
+
+.events {
+	background-color: rgba(0,0,0,0);
+	&>.row>span {
+		border-radius: 20px 0 0 0;
+		text-align: center;
+		margin-bottom: 0;
+		display: block;
+		font-size: 2em;
+		padding-top: 20px;
+		background-color: rgba(255,255,255,0.9);
+	}
+	.tab-headers {
+		text-align: center;
+		background-color: rgba(255,255,255,0.9);
+		margin-bottom: 10px;
+		padding: 10px;
+		border-radius: 0 0 10px 0;
+		div {
+			margin-right: 10px;
+			display: inline-block;
+			padding: 10px;
+			&:hover {
+				background-color: $app-red;
+				opacity: 0.5;
+				padding: 10px;
+				&:focus {
+					opacity: 1;
+				}
+				& span {
+					color: white;
+				}
+			}
+		}
+		span {
+			color: black;
+			padding: 10px;
+		}
+		.selected {
+			color: white;
+			background-color: $app-red;
+			padding: 10px;
+			span {
+				color: white;
+			}
+		}
+	}
+	&>.row>tabs {
+		padding: 0;
+	}
+
+	.upcoming_events, .past_events {
+		&>div>span {
+			border-radius: 20px 0 0 0;
+			text-align: center;
+			margin-bottom: 0;
+			display: block;
+			padding-top: 20px;
+			background-color: rgba(255,255,255,0.9);
+		}
+		.events_page {
+			position: relative;
+			padding: 0;
+			padding-bottom: 10px;
+			div.event {
+				background-color: rgba(255,255,255,0);
+				text-align: center;
+				height: 500px;
+				margin-bottom: 20px;
+				a {
+					border-radius: 5px;
+					background-color: rgba(255,255,255,0.9);
+					height: 100%;
+					padding: 10px;
+					text-decoration: none;
+					color: inherit;
+					display: inline-block;
+					width: 100%;
+				}
+				h2 {
+					text-align: left;
+				}
+				span {
+					display: block;
+				}
+				img {
+					max-width: 100%;
+					height: auto;
+
+				}
+			}
+		}
+	}
+	
+}
+.event {
+	background-color: rgba(0,0,0,0);
+	.row {
+		background-color: rgba(255,255,255,0.9);
+	}
+	.event_info {
+		text-align: center;
+		padding: 10px;
+		margin-bottom: 20px;
+		span {
+			display: block;
+		}
+		img {
+			margin: 0 auto;
+		}
+	}
+	h2, h3 {
+		text-align: center;
+		margin-top: 20px;
+	}
+	.fight {
+		margin: 0 auto;
+		width:  100%;
+		background-color: rgba(0,0,0,0);
+		&>div {
+			a {
+				display: inline-block;
+				min-width: 50%;
+				min-height: 50%;
+				border-radius: 50%;
+				max-width: 200px;
+
+			}
+			img {
+				border-radius: 50% 50%;
+				width: 100%;
+			}
+			span {
+				display: block;
+				font-size: 1.2em;
+			}
+			&:nth-child(3) {
+				padding: 20px 0 0 0;
+			}
+			table {
+				text-align: center;
+				margin: 0;
+				width: 100%;
+				td {
+					width: 33%;
+				}
+				th {
+					text-align: center;
+
+				}
+			}
+			&:nth-child(1) {
+				a {
+					background-color: rgba(0,0,255,0.75);
+				}
+			}
+			&:nth-child(2) {
+				a {
+					background-color: rgba(255,0,0,0.75);
+				}
+			}
+		}
+	}
 }
 
 //animations

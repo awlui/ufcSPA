@@ -19,6 +19,19 @@ angular.module('ufcApp')
     }
   }])
 angular.module('ufcApp')
+  .directive('tab', [function() {
+  	return {
+  		restrict: 'E',
+  		transclude: true,
+  		template: '<div ng-show="selected" ng-transclude></div>',
+  		require: '^tabs',
+  		scope: true,
+  		link: function($scope, $element, $attr, tabCtrl) {
+  			tabCtrl.registerTab($attr.title, $scope);
+  		}
+  	}
+  }])
+angular.module('ufcApp')
   .directive('tabs', [function() {
     return {
       restrict: 'E',
@@ -31,14 +44,46 @@ angular.module('ufcApp')
                 '<span ng-bind="tab.title"></span>' +
                 '</div>' + 
                 '</div>' +
-                '<div ng-transclude></div>'
-    }
+                '<div ng-transclude></div>',
+      controller: function($scope) {
+        var currentIndex = 0;
+        $scope.tabs = [];
+        this.registerTab = function(title, scope) {
+          if ($scope.tabs.length === 0) {
+            scope.selected = true;
+          } else {
+            scope.selected = false;
+          }
+          $scope.tabs.push({title: title, scope: scope});
+        };
+        $scope.selectTab = function(index) {
+          currentIndex = index;
+          for (var i = 0; i < $scope.tabs.length; i++) {
+            $scope.tabs[i].scope.selected = currentIndex === i;
+          }
+        };
+        $scope.isSelectedTab = function(index) {
+          return currentIndex === index;
+        };
+      }
+    };
   }])
 angular.module('ufcApp')
   .config(['$routeProvider', function($routeProvider) {
   	//Homepage
   	$routeProvider.when('/', {
   		templateUrl: "home/home.html",
+      controller: ['articleList',function(articleList) {
+        var self = this;
+        self.articles = articleList.data.splice(0,5);
+        console.log(self.articles)
+      }],
+      controllerAs: 'mainCtrl',
+      resolve: {
+        articleList: ['$http', function($http) {
+          return $http.get('http://localhost:3000/api/news')
+        }]
+      }
   	});
   	//Fighters Page
   	$routeProvider.when('/Fighters', {
@@ -73,23 +118,151 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         fighterList: ['$http', function($http) {
-          return $http.get('http://localhost:3000/api/fighters')
+          return $http.get('http://localhost:3000/api/fighters');
         }],
-        fighter: ['fighterSearchService', '$route', function(fighterSearchService, $route) {
+        fighter: ['fighterSearchService', '$route', '$location', '$q', function(fighterSearchService, $route, $location, $q) {
           return fighterSearchService.query(parseInt($route.current.params.fighterID)).then(function(data) {
             return data;
           }).catch(function(err) {
-            console.log(err)
-            return;
+            $location.path('/Fighters');
+            $location.replace();
+            return $q.reject(err);
           })
         }]
       }
     });
 
     $routeProvider.when('/Events', {
-      templateUrl: 'events/events.html'
-    })
+      templateUrl: 'events/events.html',
+      controller: ['eventList', 'eventsDateService', function(eventList, eventsDateService) {
+        var self = this;
+        //I will reduce the eventList at this point in time; Need more features to handle large amount of Events
+        var eventList = eventList.data;
+        self.eventSplit = eventsDateService.split(eventList, 10);
+
+      }],
+      controllerAs: 'mainCtrl',
+      resolve: {
+        eventList: ['$http', function($http) {
+          return $http.get('http://localhost:3000/api/events');
+        }]
+      }
+    });
+
+    $routeProvider.when('/Events/:eventId', {
+      template: '<div event-directive event-info="mainCtrl.eventInfo" fight-list="mainCtrl.fightList"></div>',
+      controller: ['eventInfo', 'fightList', function(eventInfo, fightList) {
+        var self = this;
+        self.eventInfo = eventInfo.data;
+        self.fightList = fightList.data;
+        console.log(self.fightList[0].fighter1_profile_image)
+      }],
+      controllerAs: 'mainCtrl',
+      resolve: {
+        eventInfo: ['$http', '$route', function($http, $route) {
+          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId);
+        }],
+        fightList: ['$http', '$route', function($http, $route) {
+          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId + '/fights');
+        }]
+      }
+    });
+
+    $routeProvider.otherwise({
+      templateUrl: '404/404.html'
+    });
   }])
+angular.module('ufcApp')
+  .directive('eventDirective', [function() {
+  	return {
+  		templateUrl: "events/event/event.html",
+  		restrict: "A",
+  		scope: {
+  			eventInfo: "=",
+        fightList: "="
+  		},
+  		link: function($scope, $element, $attr) {
+
+  		}
+  	}
+  }]);
+angular.module('ufcApp')
+	.filter('event_result_filter', [function() {
+		return function(drawCheck, result, winner) {
+			var resultString = "";
+			if (!drawCheck) {
+				return 'DRAW'
+			}
+			if (~result.Method.indexOf('Decision')) {
+				resultString += result.Method;
+			} else {
+				resultString += result.Method + " in round " + result.EndingRound + " / " + result.EndingTime;
+			}
+			if (winner) {
+				return "Winner by " + resultString;
+			} else {
+				return "";
+			}
+		}
+	}]);
+angular.module('ufcApp')
+  .filter('null_measurement_filter', [function() {
+  	return function(value) {
+  		if (value) {
+  			return value + '"';
+  		} else {
+  			return 'Unknown';
+  		}
+  	}
+  }]);
+angular.module('ufcApp')
+  .factory('eventsDateService', [function() {
+  	//The split function splits an event list between upcoming{upcomingDates} and past dates{pastDates}; pagifying ability added to create 2d arrays
+		var split = function(events, perPage) {
+		var currentDate = Date.now(),
+			eventIndex;
+		for (eventIndex=0;eventIndex < events.length; eventIndex++) {
+			var possibleUpcomingDate = new Date(events[eventIndex].event_date);
+			var timeDifference = possibleUpcomingDate - currentDate;
+			var oneDay = 24*60*60*1000;
+			var upcomingDates, pastDates;
+			var pagifyUpcomingDates =[], pagifyPastDates=[];
+			if ((timeDifference < 0)) {
+				if ((-timeDifference < oneDay)) {
+					upcomingDates = events.splice(0, eventIndex+1);
+					pastDates = events;
+				} else {
+					upcomingDates = events.splice(0, eventIndex);
+					pastDates = events;
+				}
+				while (upcomingDates.length > 0) {
+					pagifyUpcomingDates.push(upcomingDates.reverse().splice(0,perPage));
+				}
+				while(pastDates.length > 0) {
+					pagifyPastDates.push(pastDates.splice(0,perPage));
+				}
+				return {
+					upcomingDates: pagifyUpcomingDates,
+					pastDates: pagifyPastDates.splice(0,10)
+				}
+			}
+		}
+	};
+  	return {
+  		split: split
+  	}
+  }]);
+$(function() {
+	angular.element('button').on('click', function() {
+	$('.carousel').slick({
+		// lazyLoad: 'ondemand',
+		infinite: true,
+		autoplay: true,
+		autoplaySpeed: 2000,
+
+	}); 
+	})
+});
 angular.module('ufcApp')
   .filter('locationFilter', [function() {
     return function(arr) {

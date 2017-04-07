@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		concat: {
 			app: {
-				src: ['angularApp/**/*.js', '!angularApp/javascripts/*.js'],
+				src: ['angularApp/**/*.js', 'angularApp/javascripts/*.js', '!angularApp/angular.min.js'],
 				dest: 'public/mainApp.js'
 			}
 		},

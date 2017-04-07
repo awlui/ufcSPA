@@ -3,6 +3,17 @@ angular.module('ufcApp')
   	//Homepage
   	$routeProvider.when('/', {
   		templateUrl: "home/home.html",
+      controller: ['articleList',function(articleList) {
+        var self = this;
+        self.articles = articleList.data.splice(0,5);
+        console.log(self.articles)
+      }],
+      controllerAs: 'mainCtrl',
+      resolve: {
+        articleList: ['$http', function($http) {
+          return $http.get('http://localhost:3000/api/news')
+        }]
+      }
   	});
   	//Fighters Page
   	$routeProvider.when('/Fighters', {
@@ -37,20 +48,57 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         fighterList: ['$http', function($http) {
-          return $http.get('http://localhost:3000/api/fighters')
+          return $http.get('http://localhost:3000/api/fighters');
         }],
-        fighter: ['fighterSearchService', '$route', function(fighterSearchService, $route) {
+        fighter: ['fighterSearchService', '$route', '$location', '$q', function(fighterSearchService, $route, $location, $q) {
           return fighterSearchService.query(parseInt($route.current.params.fighterID)).then(function(data) {
             return data;
           }).catch(function(err) {
-            console.log(err)
-            return;
+            $location.path('/Fighters');
+            $location.replace();
+            return $q.reject(err);
           })
         }]
       }
     });
 
     $routeProvider.when('/Events', {
-      templateUrl: 'events/events.html'
-    })
+      templateUrl: 'events/events.html',
+      controller: ['eventList', 'eventsDateService', function(eventList, eventsDateService) {
+        var self = this;
+        //I will reduce the eventList at this point in time; Need more features to handle large amount of Events
+        var eventList = eventList.data;
+        self.eventSplit = eventsDateService.split(eventList, 10);
+
+      }],
+      controllerAs: 'mainCtrl',
+      resolve: {
+        eventList: ['$http', function($http) {
+          return $http.get('http://localhost:3000/api/events');
+        }]
+      }
+    });
+
+    $routeProvider.when('/Events/:eventId', {
+      template: '<div event-directive event-info="mainCtrl.eventInfo" fight-list="mainCtrl.fightList"></div>',
+      controller: ['eventInfo', 'fightList', function(eventInfo, fightList) {
+        var self = this;
+        self.eventInfo = eventInfo.data;
+        self.fightList = fightList.data;
+        console.log(self.fightList[0].fighter1_profile_image)
+      }],
+      controllerAs: 'mainCtrl',
+      resolve: {
+        eventInfo: ['$http', '$route', function($http, $route) {
+          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId);
+        }],
+        fightList: ['$http', '$route', function($http, $route) {
+          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId + '/fights');
+        }]
+      }
+    });
+
+    $routeProvider.otherwise({
+      templateUrl: '404/404.html'
+    });
   }])

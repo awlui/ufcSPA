@@ -1,4 +1,14 @@
 <div class="row">
+	<div class="carousel">
+		<div class="carouselUnit" ng-repeat="article in mainCtrl.articles">
+			<img ng-src="{{article.thumbnail}}" alt="">
+<!-- 			<a href="" class="overlay">
+				<div>{{article.title}}</div>
+			</a> -->
+		</div>
+	</div>
+</div>
+<div class="row">
 	<div class="col-xs-12 home">
 		<h2>Welcome to my page</h2>
 		<p>This application is about all things UFC. It connects with the official UFC API, which needs some real work actually, to provide up to date information on fighters, upcoming/past fights, and various UFC-related articles. </p></br>

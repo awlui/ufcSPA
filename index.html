@@ -4,8 +4,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" href="public/stylesheets/main.css">
-		<link rel="stylesheet" href="public/slick/slick.css">
-		<link rel="stylesheet" href="public/slick/slick-theme.css">
 
 	</head>
 	<body ng-app="ufcApp">
@@ -28,11 +26,10 @@
 			<div id="triangle"></div>
 		</aside>
 		<div class="wrapper">
-		<button>HERE</button>
 			<div class="backdrop">
 				
 			</div>
-			<div class="container" ng-view autoscroll="true">
+			<div class="container" ng-view>
 <!-- 				<div class="row">
 					<div class="col-xs-12 home">
 						<h2>Welcome to my page</h2>
@@ -74,16 +71,15 @@
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
-  		<script src="/public/slick/slick.min.js"></script>
-		<script src="public/angular.min.js"></script>
+  		<script src="src/javascripts/main.js"></script>
+		<script src="node_modules/angular/angular.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-resource.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
-<!-- 		<script src="src/javascripts/angularApp/app.js"></script>
+		<script src="src/javascripts/angularApp/app.js"></script>
 		<script src="src/javascripts/angularApp/config/routes.js"></script>
 		<script src="src/javascripts/angularApp/filters/index.js"></script>
 		<script src="src/javascripts/angularApp/services/index.js"></script>
-		<script src="src/javascripts/angularApp/directives/index.js"></script> -->
-		<script src="public/mainApp.js"></script>
+		<script src="src/javascripts/angularApp/directives/index.js"></script>
 		<script src="http://localhost:35729/"></script>
 
 	</body>

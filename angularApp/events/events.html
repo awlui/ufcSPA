@@ -1,1 +1,37 @@
-<h2 class="Events">Upcoming Events</h2>
+<div class="container events">
+	<div class="row">
+		<span>Toggle</span>
+		<tabs class="col-xs-12">
+			<tab class="upcoming_events" title="Upcoming Events">
+				<span>Pages</span>
+				<tabs class="events_page col-xs-12">
+					<tab title="{{$index}}" ng-repeat="eventPage in mainCtrl.eventSplit.upcomingDates">
+						<div class="event col-xs-12 col-md-6" ng-repeat="event in eventPage">
+							<a href='{{"#!/Events/" + event.id}}'>
+							<h2>{{event.base_title}}</h2>
+							<h3>{{event.title_tag_line || ""}}</h3>
+							<span>{{event.event_date | date: 'medium'}}</span>
+							<img ng-src="{{event.feature_image}}" alt="">
+							</a>
+						</div>
+					</tab>
+				</tabs>
+			</tab>
+			<tab class="past_events" title="Past Events">
+				<span>Pages</span>
+				<tabs class="events_page col-xs-12">
+					<tab title="{{$index}}" ng-repeat="eventPage in mainCtrl.eventSplit.pastDates">
+						<div class="event col-xs-12 col-md-6" ng-repeat="event in eventPage">
+							<a href='{{"#!/Events/" + event.id}}'>
+							<h2>{{event.base_title}}</h2>
+							<h3>{{event.title_tag_line || ""}}</h3>
+							<span>{{event.event_date | date: 'medium'}}</span>
+							<img ng-src="{{event.feature_image}}" alt="">
+							</a>
+						</div>
+					</tab>
+				</tabs>
+			</tab>
+		</tabs>
+	</div>
+</div>

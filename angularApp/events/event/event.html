@@ -1,0 +1,50 @@
+<div class="container event">
+	<div class="row">
+		<div class="col-xs-12 event_info">
+			<h2>{{eventInfo.base_title}}</h2>
+			<h3>{{eventInfo.title_tag_line}}</h3>
+			<h4>{{eventInfo.arena}}</h4>
+			<span>{{eventInfo.event_date | date: 'medium'}}</span>
+			<img class="img-responsive" ng-src="{{eventInfo.feature_image}}" alt="">
+		</div>
+		<h2>Fight List</h2>
+		<h3 ng-if="fight.fighter1_first_name">No Fights Scheduled</h3>
+		<div class="col-xs-12 fight" ng-repeat="fight in fightList" ng-if="fight.fighter1_profile_image">
+			<div class="col-xs-6">
+				<a ng-href="#!/Fighters/{{fight.fighter1_id}}"><img class="img-rounded" ng-src="{{fight.fighter1_profile_image}}" alt=""></a>
+			</div>
+			<div class="col-xs-6">
+				<a ng-href="#!/Fighters/{{fight.fighter2_id}}"><img ng-class="img-rounded" ng-src="{{fight.fighter2_profile_image}}" alt=""></a>
+			</div>
+			<div class="col-xs-12">
+				<table class="table-bordered">
+					<tr>
+						<td>{{fight.fighter1_first_name + " " +  fight.fighter1_last_name}}</td>
+						<th>Vs</th>
+						<td>{{fight.fighter2_first_name + " " +  fight.fighter2_last_name}}</td>
+					</tr>
+					<tr>
+						<td>{{fight.fighter1record}}</td>
+						<td>Record</td>
+						<td>{{fight.fighter2record}}</td>
+					</tr>
+					<tr>
+						<td>{{fight.fighter1height + '"'}}</td>
+						<td>Height</td>
+						<td>{{fight.fighter1height + '"'}}</td>
+					</tr>
+					<tr>
+						<td>{{fight.fighter1reach | null_measurement_filter}}</td>
+						<td>Reach</td>
+						<td>{{fight.fighter2reach | null_measurement_filter}}</td>
+					</tr>
+					<tr ng-show="!!fight.result.Method">
+						<td>{{(fight.fighter1_is_winner || fight.fighter2_is_winner) | event_result_filter:fight.result:fight.fighter1_is_winner}}</td>
+						<td>Result</td>
+						<td>{{(fight.fighter1_is_winner || fight.fighter2_is_winner) | event_result_filter:fight.result:fight.fighter2_is_winner}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>	
+</div>
