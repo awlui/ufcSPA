@@ -97,7 +97,7 @@ angular.module('ufcApp')
       }
     });
 
-    $routeProvider.otherwise({
-      templateUrl: '404/404.html'
-    });
-  }])
+  //   $routeProvider.otherwise({
+  //     templateUrl: '404/404.html'
+  //   });
+  // }])
