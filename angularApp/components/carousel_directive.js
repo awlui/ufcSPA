@@ -15,13 +15,33 @@ angular.module('ufcApp')
   				}
   			});
   			$timeout(function() {
-  				$('.carousel').slick({
-		// lazyLoad: 'ondemand',
-		infinite: true,
-		autoplay: true,
-    speed: 1500,
-		autoplaySpeed: 2000,
-  			})
+  // 				$('.carousel').slick({
+		// // lazyLoad: 'ondemand',
+		// infinite: true,
+		// autoplay: true,
+  //   speed: 1500,
+		// autoplaySpeed: 2000,
+  // 			})
+   $('.carousel:nth-child(1)').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: false,
+  fade: true,
+  dots: true,
+  asNavFor: '.carousel:nth-child(2)'
+});
+$('.carousel:nth-child(2)').slick({
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  asNavFor: '.carousel:nth-child(1)',
+  centerMode: true,
+  focusOnSelect: true,
+  autoplay: true,
+  speed: 1500,
+  authoplaySpeed: 2000
+});
+  
+
 	}); 
   		}
 

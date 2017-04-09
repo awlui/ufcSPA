@@ -6228,16 +6228,19 @@ carousel {
   animation-fill-mode: forwards;
   opacity: 0; }
   carousel .carouselUnit {
-    margin: 0 auto; }
+    margin: 0 auto;
+    text-align: center; }
     carousel .carouselUnit:hover a > div {
       opacity: 1; }
   carousel a {
     display: inline-block;
     margin: 0 auto;
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 80%;
     text-decoration: none; }
+    @media (max-width: 1200px) {
+      carousel a {
+        width: 100%; } }
     carousel a:hover {
       text-decoration: none; }
       carousel a:hover > div {
@@ -6262,6 +6265,12 @@ carousel {
       @media (max-width: 992px) {
         carousel a > div {
           display: none; } }
+  carousel .carousel:nth-child(2) .carouselUnit img {
+    width: 200px;
+    margin: 0 auto; }
+  @media (max-width: 1200px) {
+    carousel .carousel:nth-child(2) {
+      display: none; } }
 
 @keyframes slideIn {
   0% {
