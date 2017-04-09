@@ -5835,7 +5835,7 @@ nav.navbar {
   height: 100%;
   background-repeat: no-repeat;
   margin: 20px;
-  margin-right: 420px;
+  margin-right: 300px;
   margin-top: 100px; }
   @media (max-width: 1000px) {
     .wrapper {
@@ -5864,10 +5864,10 @@ nav.navbar {
 
 aside {
   position: fixed;
-  right: -400px;
+  right: -300px;
   z-index: 1000; }
   aside .navbar {
-    width: 400px;
+    width: 300px;
     background-color: rgba(255, 13, 0, 0.7);
     height: 400px;
     display: block;
@@ -5883,7 +5883,7 @@ aside {
       aside .navbar ul li {
         border-bottom: 3px solid white;
         line-height: 2em;
-        width: 300px;
+        width: 250px;
         margin: 0 auto; }
         aside .navbar ul li a {
           text-decoration: none;
@@ -5902,7 +5902,7 @@ div#triangle {
   width: 0;
   height: 0;
   border-style: solid;
-  border-width: 0 400px 200px 0;
+  border-width: 0 300px 200px 0;
   border-color: transparent rgba(255, 13, 0, 0.7) transparent transparent; }
 
 .mobileAside {
@@ -6102,7 +6102,8 @@ route-loading-indicator {
     .events .tab-headers div {
       margin-right: 10px;
       display: inline-block;
-      padding: 10px; }
+      padding: 10px;
+      border-radius: 5px; }
       .events .tab-headers div:hover {
         background-color: rgba(255, 13, 0, 0.7);
         opacity: 0.5;
@@ -6210,6 +6211,14 @@ route-loading-indicator {
         width: 33%; }
       .event .fight > div table th {
         text-align: center; }
+      .event .fight > div table tr.fighter1_winner {
+        background-color: rgba(0, 0, 255, 0.75); }
+        .event .fight > div table tr.fighter1_winner td {
+          color: white; }
+      .event .fight > div table tr.fighter2_winner {
+        background-color: rgba(255, 0, 0, 0.75); }
+        .event .fight > div table tr.fighter2_winner td {
+          color: white; }
     .event .fight > div:nth-child(1) a {
       background-color: rgba(0, 0, 255, 0.75); }
     .event .fight > div:nth-child(2) a {
@@ -6221,12 +6230,10 @@ route-loading-indicator {
 
 carousel {
   position: relative;
-  padding: 0 30px;
-  animation-name: slideIn;
-  animation-delay: 1s;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  opacity: 0; }
+  padding: 0 30px; }
+  @media (max-width: 1200px) {
+    carousel {
+      margin-bottom: 40px; } }
   carousel .carouselUnit {
     margin: 0 auto;
     text-align: center; }
@@ -6253,24 +6260,59 @@ carousel {
       margin-left: 5%;
       width: 90%;
       opacity: 0;
+      font-size: 0.6em;
       color: white;
-      height: 150px;
+      height: 100px;
       position: absolute;
       bottom: 0;
       padding: 10px;
       transition: opacity 2s; }
       @media (max-width: 992px) {
         carousel a > div {
-          font-size: 0.6em; } }
+          font-size: 0.5em; } }
       @media (max-width: 992px) {
         carousel a > div {
           display: none; } }
-  carousel .carousel:nth-child(2) .carouselUnit img {
-    width: 200px;
-    margin: 0 auto; }
-  @media (max-width: 1200px) {
-    carousel .carousel:nth-child(2) {
-      display: none; } }
+      carousel a > div span {
+        font-size: 1.5em; }
+  carousel .carousel:nth-child(1) {
+    opacity: 0;
+    animation-name: slideIn;
+    animation-delay: 2s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
+    @media (max-width: 992px) {
+      carousel .carousel:nth-child(1) {
+        animation-delay: 1s; } }
+  carousel .carousel:nth-child(2) {
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 20px 40px;
+    animation-name: slideIn;
+    animation-delay: 1s;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; }
+    carousel .carousel:nth-child(2) .carouselUnit {
+      width: auto;
+      outline: none; }
+      carousel .carousel:nth-child(2) .carouselUnit img {
+        width: 90%;
+        margin: 0 auto; }
+    @media (max-width: 992px) {
+      carousel .carousel:nth-child(2) {
+        display: none; } }
+
+div.media {
+  height: 350px;
+  background-color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  padding: 0;
+  margin-top: -20px;
+  opacity: 0;
+  animation-name: slideIn;
+  animation-delay: 0.5s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards; }
 
 @keyframes slideIn {
   0% {

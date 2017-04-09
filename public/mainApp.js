@@ -29,6 +29,7 @@ angular.module('ufcApp')
   slidesToScroll: 1,
   arrows: false,
   fade: true,
+  focusOnSelect: true,
   dots: true,
   asNavFor: '.carousel:nth-child(2)'
 });

@@ -15,7 +15,7 @@
 				<a ng-href="#!/Fighters/{{fight.fighter1_id}}"><img class="img-rounded" ng-src="{{fight.fighter1_profile_image}}" alt=""></a>
 			</div>
 			<div class="col-xs-6">
-				<a ng-href="#!/Fighters/{{fight.fighter2_id}}"><img ng-class="img-rounded" ng-src="{{fight.fighter2_profile_image}}" alt=""></a>
+				<a ng-href="#!/Fighters/{{fight.fighter2_id}}"><img class="img-rounded" ng-src="{{fight.fighter2_profile_image}}" alt=""></a>
 			</div>
 			<div class="col-xs-12">
 				<table class="table-bordered">
@@ -39,7 +39,7 @@
 						<td>Reach</td>
 						<td>{{fight.fighter2reach | null_measurement_filter}}</td>
 					</tr>
-					<tr ng-if="selected" ng-show="!!fight.result.Method">
+					<tr ng-class="{fighter1_winner: fight.fighter1_is_winner, fighter2_winner: fight.fighter2_is_winner}" ng-if="selected" ng-show="!!fight.result.Method">
 						<td>{{(fight.fighter1_is_winner || fight.fighter2_is_winner) | event_result_filter:fight.result:fight.fighter1_is_winner}}</td>
 						<td>Result</td>
 						<td>{{(fight.fighter1_is_winner || fight.fighter2_is_winner) | event_result_filter:fight.result:fight.fighter2_is_winner}}</td>
