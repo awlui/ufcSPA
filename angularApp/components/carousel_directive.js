@@ -18,7 +18,8 @@ angular.module('ufcApp')
   				$('.carousel').slick({
 		// lazyLoad: 'ondemand',
 		infinite: true,
-		autoplay: false,
+		autoplay: true,
+    speed: 1500,
 		autoplaySpeed: 2000,
   			})
 	}); 

@@ -20,7 +20,8 @@ angular.module('ufcApp')
   				$('.carousel').slick({
 		// lazyLoad: 'ondemand',
 		infinite: true,
-		autoplay: false,
+		autoplay: true,
+    speed: 1500,
 		autoplaySpeed: 2000,
   			})
 	}); 
@@ -109,7 +110,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         articleList: ['$http', function($http) {
-          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/news')
+          return $http.get('http://localhost:3000/api/news')
         }]
       }
   	});
@@ -127,7 +128,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
   		resolve: {
   			fighterList: ['$http', function($http) {
-  				return $http.get('https://gentle-citadel-87711.herokuapp.com/api/fighters')
+  				return $http.get('http://localhost:3000/api/fighters')
   			}
         ]
   		}
@@ -146,7 +147,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         fighterList: ['$http', function($http) {
-          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/fighters');
+          return $http.get('http://localhost:3000/api/fighters');
         }],
         fighter: ['fighterSearchService', '$route', '$location', '$q', function(fighterSearchService, $route, $location, $q) {
           return fighterSearchService.query(parseInt($route.current.params.fighterID)).then(function(data) {
@@ -172,25 +173,37 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         eventList: ['$http', function($http) {
-          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/events');
+          return $http.get('http://localhost:3000/api/events');
         }]
       }
     });
 
     $routeProvider.when('/Events/:eventId', {
-      template: '<div event-directive event-info="mainCtrl.eventInfo" fight-list="mainCtrl.fightList"></div>',
+      template: '<div event-directive past-event="mainCtrl.pastEvent" event-info="mainCtrl.eventInfo" fight-list="mainCtrl.fightList"></div>',
       controller: ['eventInfo', 'fightList', function(eventInfo, fightList) {
         var self = this;
         self.eventInfo = eventInfo.data;
         self.fightList = fightList.data;
+        self.pastEvent = function(date) {
+          var eventDate = new Date(date);
+          var currentDate = new Date();
+          var oneDay = 24*60*60*1000;
+          var timeDifference = eventDate - currentDate;
+          if ((timeDifference < 0) && (-timeDifference > oneDay)) {
+            return true;
+          } else {
+            return false;
+          }
+        }
+
       }],
       controllerAs: 'mainCtrl',
       resolve: {
         eventInfo: ['$http', '$route', function($http, $route) {
-          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/events/' + $route.current.params.eventId);
+          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId);
         }],
         fightList: ['$http', '$route', function($http, $route) {
-          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/events/' + $route.current.params.eventId + '/fights');
+          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId + '/fights');
         }]
       }
     });
@@ -206,10 +219,14 @@ angular.module('ufcApp')
   		restrict: "A",
   		scope: {
   			eventInfo: "=",
-        fightList: "="
+        fightList: "=",
+        pastEvent: "="
   		},
   		link: function($scope, $element, $attr) {
-
+        $scope.selected = false;
+        $scope.toggle = function() {
+          $scope.selected = $scope.selected ? false : true;
+        };
   		}
   	}
   }]);
@@ -249,7 +266,7 @@ angular.module('ufcApp')
 		var currentDate = Date.now(),
 			eventIndex;
 		for (eventIndex=0;eventIndex < events.length; eventIndex++) {
-			var possibleUpcomingDate = new Date(events[eventIndex].event_date);
+			var possibleUpcomingDate = new Date(events[eventIndex].event_dategmt);
 			var timeDifference = possibleUpcomingDate - currentDate;
 			var oneDay = 24*60*60*1000;
 			var upcomingDates, pastDates;

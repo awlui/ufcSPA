@@ -4,11 +4,12 @@
 			<h2>{{eventInfo.base_title}}</h2>
 			<h3>{{eventInfo.title_tag_line}}</h3>
 			<h4>{{eventInfo.arena}}</h4>
-			<span>{{eventInfo.event_date | date: 'medium'}}</span>
+			<span>{{eventInfo.event_dategmt | date: 'medium'}}</span>
 			<img class="img-responsive" ng-src="{{eventInfo.feature_image}}" alt="">
 		</div>
 		<h2>Fight List</h2>
-		<h3 ng-if="fight.fighter1_first_name">No Fights Scheduled</h3>
+		<span>Toggle</span>
+		<button ng-class="{toggle_on: selected}" ng-if="pastEvent(eventInfo.event_dategmt)" ng-click="toggle()"></button>
 		<div class="col-xs-12 fight" ng-repeat="fight in fightList" ng-if="fight.fighter1_profile_image">
 			<div class="col-xs-6">
 				<a ng-href="#!/Fighters/{{fight.fighter1_id}}"><img class="img-rounded" ng-src="{{fight.fighter1_profile_image}}" alt=""></a>
@@ -38,7 +39,7 @@
 						<td>Reach</td>
 						<td>{{fight.fighter2reach | null_measurement_filter}}</td>
 					</tr>
-					<tr ng-show="!!fight.result.Method">
+					<tr ng-if="selected" ng-show="!!fight.result.Method">
 						<td>{{(fight.fighter1_is_winner || fight.fighter2_is_winner) | event_result_filter:fight.result:fight.fighter1_is_winner}}</td>
 						<td>Result</td>
 						<td>{{(fight.fighter1_is_winner || fight.fighter2_is_winner) | event_result_filter:fight.result:fight.fighter2_is_winner}}</td>

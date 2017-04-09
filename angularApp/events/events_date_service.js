@@ -5,7 +5,7 @@ angular.module('ufcApp')
 		var currentDate = Date.now(),
 			eventIndex;
 		for (eventIndex=0;eventIndex < events.length; eventIndex++) {
-			var possibleUpcomingDate = new Date(events[eventIndex].event_date);
+			var possibleUpcomingDate = new Date(events[eventIndex].event_dategmt);
 			var timeDifference = possibleUpcomingDate - currentDate;
 			var oneDay = 24*60*60*1000;
 			var upcomingDates, pastDates;

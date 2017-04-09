@@ -6156,7 +6156,22 @@ route-loading-indicator {
         height: auto; }
 
 .event {
-  background-color: transparent; }
+  background-color: transparent;
+  text-align: center; }
+  .event button {
+    border-radius: 10px;
+    outline: none;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black; }
+    .event button:after {
+      content: "Results Hidden";
+      color: red; }
+    .event button.toggle_on:after {
+      content: "Results Shown";
+      color: green; }
+  .event span {
+    display: block; }
   .event .row {
     background-color: rgba(255, 255, 255, 0.9); }
   .event .event_info {
@@ -6168,7 +6183,6 @@ route-loading-indicator {
     .event .event_info img {
       margin: 0 auto; }
   .event h2, .event h3 {
-    text-align: center;
     margin-top: 20px; }
   .event .fight {
     margin: 0 auto;
@@ -6209,7 +6223,7 @@ carousel {
   position: relative;
   padding: 0 30px;
   animation-name: slideIn;
-  animation-delay: 0.5s;
+  animation-delay: 1s;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   opacity: 0; }

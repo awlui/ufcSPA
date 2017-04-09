@@ -433,6 +433,27 @@ route-loading-indicator {
 }
 .event {
 	background-color: rgba(0,0,0,0);
+	text-align: center;
+	button {
+		border-radius: 10px;
+		outline: none;
+		padding: 10px;
+		background-color: white;
+		border: 1px solid black;;
+		&:after {
+			content: "Results Hidden";
+			color: red;
+		}
+		&.toggle_on {
+			&:after {
+				content: "Results Shown";
+				color: green;
+			}
+		}
+	}
+	span {
+		display: block;
+	}
 	.row {
 		background-color: rgba(255,255,255,0.9);
 	}
@@ -448,7 +469,6 @@ route-loading-indicator {
 		}
 	}
 	h2, h3 {
-		text-align: center;
 		margin-top: 20px;
 	}
 	.fight {
@@ -508,7 +528,7 @@ carousel {
 	position: relative;
 	padding: 0 30px;
 	animation-name: slideIn;
-	animation-delay: 0.5s;
+	animation-delay: 1s;
 	animation-duration: 2s;
 	animation-fill-mode: forwards;
 	opacity: 0;
@@ -526,13 +546,13 @@ carousel {
 		width: 100%;
 		height: 100%;
 		text-decoration: none;
-		// &:hover {
-		// 	text-decoration: none;
-		// 	& > div {
-		// 		background-color: rgba(0,0,0,0.75);
-		// 		opacity: 1;
-		// 	}
-		// }
+		&:hover {
+			text-decoration: none;
+			& > div {
+				background-color: rgba(0,0,0,0.75);
+				opacity: 1;
+			}
+		}
 		img {
 			width: 90%;
 			margin: 0 auto;
@@ -546,12 +566,7 @@ carousel {
 			position: absolute;
 			bottom: 0;
 			padding: 10px;
-			background-color: rgba(0,0,0,0.75);
 			transition: opacity 2s;
-			animation-name: slideIn;
-			animation-delay: 1s;
-			animation-duration: 2s;
-			animation-fill-mode: forwards;
 			@media (max-width: $screen-md) {
 				font-size: 0.6em;
 			}
@@ -562,6 +577,9 @@ carousel {
 	}
 
 }
+
+
+
 
 //animations
 @keyframes slideIn {

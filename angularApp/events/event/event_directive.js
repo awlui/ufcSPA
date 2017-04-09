@@ -5,10 +5,14 @@ angular.module('ufcApp')
   		restrict: "A",
   		scope: {
   			eventInfo: "=",
-        fightList: "="
+        fightList: "=",
+        pastEvent: "="
   		},
   		link: function($scope, $element, $attr) {
-
+        $scope.selected = false;
+        $scope.toggle = function() {
+          $scope.selected = $scope.selected ? false : true;
+        };
   		}
   	}
   }]);
