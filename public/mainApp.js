@@ -240,11 +240,11 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         articleList: ['$http', function($http) {
-          return $http.get('http://localhost:3000/api/news')
+          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/news')
         }],
         mediaList: ['$http', function($http) {
           console.log(2)
-          return $http.get('http://localhost:3000/api/media')
+          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/media')
         }]
       }
   	});
@@ -262,7 +262,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
   		resolve: {
   			fighterList: ['$http', function($http) {
-  				return $http.get('http://localhost:3000/api/fighters')
+  				return $http.get('https://gentle-citadel-87711.herokuapp.com/api/fighters')
   			}
         ]
   		}
@@ -281,7 +281,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         fighterList: ['$http', function($http) {
-          return $http.get('http://localhost:3000/api/fighters');
+          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/fighters');
         }],
         fighter: ['fighterSearchService', '$route', '$location', '$q', function(fighterSearchService, $route, $location, $q) {
           return fighterSearchService.query(parseInt($route.current.params.fighterID)).then(function(data) {
@@ -307,7 +307,7 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         eventList: ['$http', function($http) {
-          return $http.get('http://localhost:3000/api/events');
+          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/events');
         }]
       }
     });
@@ -334,10 +334,10 @@ angular.module('ufcApp')
       controllerAs: 'mainCtrl',
       resolve: {
         eventInfo: ['$http', '$route', function($http, $route) {
-          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId);
+          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/events/' + $route.current.params.eventId);
         }],
         fightList: ['$http', '$route', function($http, $route) {
-          return $http.get('http://localhost:3000/api/events/' + $route.current.params.eventId + '/fights');
+          return $http.get('https://gentle-citadel-87711.herokuapp.com/api/events/' + $route.current.params.eventId + '/fights');
         }]
       }
     });
@@ -534,7 +534,7 @@ angular.module('ufcApp')
   .factory('fighterSearchService', ['$http', function($http) {
     return {
       query: function(id) {
-        return $http.get('http://localhost:3000/api/fighters/' + id);
+        return $http.get('https://gentle-citadel-87711.herokuapp.com/api/fighters/' + id);
       }
     }
   }]);
