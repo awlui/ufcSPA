@@ -1,0 +1,16 @@
+<div class="modal-header">
+    <button type="button" class="close" ng-click="modalCtrl.close()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h3 class="modal-title" id="modal-title">{{modalCtrl.item.title}}</h3>
+</div>
+<div class="modal-body mediaModal" id="modal-body">
+    <video autoplay controls>
+          <source ng-src="{{modalCtrl.item.mobile_video_url}}" type="video/mp4">
+          <img ng-src="{{modalCtrl.item.thumbnail}}" alt="">
+    </video>
+    <div>
+        {{modalCtrl.item.description }}
+    </div>
+</div>
+<div class="modal-footer">
+Published {{modalCtrl.item.published_start_date | date: 'medium'}}
+</div>

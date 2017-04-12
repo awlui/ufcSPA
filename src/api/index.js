@@ -102,6 +102,39 @@ router.get('/api/news', function(req, res, next) {
 		}
 	});
 });
+router.get('/api/media', function(req, res, next) {
+	var requestOptions = {
+		url: 'http://ufc-data-api.ufc.com/api/v3/iphone/media.json',
+		method: 'GET'
+	}
+	request(requestOptions, function(err, response, body) {
+		var parsedBody = JSON.parse(body);
+		var currentDate = Date.now();
+		var oneWeek = 86400000*7;
+		var responseArr = [];
+		var counter = 0, attempts = 0;
+		var random;
+		while (attempts < parsedBody.length && counter < 5) {
+			console.log(responseArr)
+			if ((new Date(parsedBody[attempts].media_date)) > (currentDate - oneWeek)) {
+				responseArr.push(parsedBody[attempts]);
+				counter++
+			}
+			attempts++;
+		}
+
+		if (err) {
+			console.log(err)
+			next();
+		} else if (response.statusCode === 200) {
+			console.log(responseArr)
+			res.send(responseArr);
+		} else {
+			console.log(response.statusCode),
+			next();
+		}
+	});
+});
 router.use(function(req,res,next) {
 	res.status(404);
 	res.send({

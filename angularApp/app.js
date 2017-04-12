@@ -1,2 +1,2 @@
 'use strict'
-angular.module('ufcApp', ['ngRoute']);
+angular.module('ufcApp', ['ngRoute', 'ui.bootstrap']);

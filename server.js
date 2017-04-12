@@ -1,10 +1,12 @@
 var express = require('express');
 var http = require('http');
+var fs = require('fs');
 var logger = require('morgan');
 var path = require('path');
 var app = express();
 var api = require('./src/api/index.js');
 var port = process.env.PORT || 3000;
+
 app.set('port', port);
 app.use(logger('dev'));
 

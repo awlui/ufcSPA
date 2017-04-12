@@ -3,15 +3,20 @@ angular.module('ufcApp')
   	//Homepage
   	$routeProvider.when('/', {
   		templateUrl: "home/home.html",
-      controller: ['articleList',function(articleList) {
+      controller: ['articleList', 'mediaList', function(articleList, mediaList) {
         var self = this;
         self.articles = articleList.data.splice(1,5);
+        self.media = mediaList.data.splice(0,5);
 
       }],
       controllerAs: 'mainCtrl',
       resolve: {
         articleList: ['$http', function($http) {
           return $http.get('http://localhost:3000/api/news')
+        }],
+        mediaList: ['$http', function($http) {
+          console.log(2)
+          return $http.get('http://localhost:3000/api/media')
         }]
       }
   	});
