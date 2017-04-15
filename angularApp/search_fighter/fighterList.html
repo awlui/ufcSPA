@@ -4,7 +4,7 @@
 	Fighter Search
 </h1>
 <route-loading-indicator></route-loading-indicator>
-<select size=10  ng-model="currentFighter.id" ng-click=fighterSearch()
+<select size=10  ng-model="currentFighter.id" ng-click=fighterSearch() ng-change=fighterSearch()
 		ng-options="fighter.id as (fighter.first_name + ' ' + fighter.last_name) group by fighter.weight_class for fighter in fighterList | nullWeightClass | weightClassFilter:weightClass | nameFilter:query"> 
 		<option value="">Search</option>
 </select>
