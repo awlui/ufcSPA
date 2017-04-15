@@ -14,6 +14,7 @@ app.use(function(req, res, next) {
 	res.setHeader('Access-Control-Request-Method', '*');
 	res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
 	res.setHeader('Access-Control-Allow-Headers', '*');
+	next();
 });
 app.get('/', function(req, res, next) {
 	res.sendFile(path.join(__dirname, 'angularApp', 'index.html'));
