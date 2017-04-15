@@ -33,21 +33,8 @@
 			<div class="backdrop">
 				
 			</div>
-			<div class="container" ng-view autoscroll="true">
-<!-- 				<div class="row">
-					<div class="col-xs-12 home">
-						<h2>Welcome to my page</h2>
-						<p>This application is about all things UFC. It connects with the official UFC API, which needs some real work actually, to provide up to date information on fighters, upcoming/past fights, and various UFC-related articles. </p></br>
-						<p>UFC has come a long way in regards to how I viewed it as a sport. It can definitely be a bit gruesome at times but there is a certain beauty in it that can be seen by those who are willing.</p>
-						<h3>Developer Notes</h3>
-						<ul>
-							<li>The centerpiece of this application is AngularJS 1.x.</li>
-							<li>I use primarily Node.js and npm as the environment I develop in.</li>
-							<li>I will implement some testing into this application as well. I expect this application to be something I will work on from time to time.</li>
-							<li>Initially, there won't be much custom back-end involved for this application as I will rely entirely on UFC's API for data; however, I may implement user authentication through Rails' Devise gem if I want to take advantage of the UFC API's support for live events. I'd like to perhaps do something similar to what Yahoo sports does with their fantasy league, which I've never used before so may need to read up on.</li>
-						</ul>
-					</div>
-				</div> -->
+			<div class="container" autoscroll="true">
+				<div ng-view></div>
 			</div>
 		</div>
 		<div class="mobileAside">
@@ -64,7 +51,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<p class="animated bounce infinite">Credits to UFC for their terrible, yet functional, API.</p>
+						<p>Credits to UFC for their terrible, yet functional, API.</p>
 					</div>
 					<div class="col-xs-12 col-sm-6">
 						<p>Credits to me too, of course!</p>
