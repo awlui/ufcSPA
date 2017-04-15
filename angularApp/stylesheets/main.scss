@@ -44,8 +44,8 @@ nav.navbar {
 	@media (min-width: 1000px) {
 		margin-right: 300px;
 	}
-	& > .container div {
-		margin: 0 5px;
+	& > div {
+		padding: 0 30px;
 	}
 }
 @keyframes blur {
@@ -414,6 +414,7 @@ route-loading-indicator {
 				a {
 					border-radius: 5px;
 					background-color: rgba(255,255,255,0.9);
+					min-height: 200px;
 					height: 100%;
 					padding: 10px;
 					text-decoration: none;
@@ -429,7 +430,6 @@ route-loading-indicator {
 				}
 				img {
 					max-width: 100%;
-					height: auto;
 
 				}
 			}

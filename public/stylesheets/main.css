@@ -8165,8 +8165,8 @@ nav.navbar {
   @media (min-width: 1000px) {
     .wrapper {
       margin-right: 300px; } }
-  .wrapper > .container div {
-    margin: 0 5px; }
+  .wrapper > div {
+    padding: 0 30px; }
 
 @keyframes blur {
   0% {
@@ -8469,6 +8469,7 @@ route-loading-indicator {
       .events .upcoming_events .events_page div.event a, .events .past_events .events_page div.event a {
         border-radius: 5px;
         background-color: rgba(255, 255, 255, 0.9);
+        min-height: 200px;
         height: 100%;
         padding: 10px;
         text-decoration: none;
@@ -8480,8 +8481,7 @@ route-loading-indicator {
       .events .upcoming_events .events_page div.event span, .events .past_events .events_page div.event span {
         display: block; }
       .events .upcoming_events .events_page div.event img, .events .past_events .events_page div.event img {
-        max-width: 100%;
-        height: auto; }
+        max-width: 100%; }
 
 .event {
   background-color: transparent;
